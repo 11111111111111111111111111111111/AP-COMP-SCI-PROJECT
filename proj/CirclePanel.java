@@ -29,15 +29,9 @@ public class CirclePanel extends JPanel
     
     // Create buttons to move the circle
     JButton left = new JButton("Left");
-    JButton right = new JButton("Right");
-    JButton up = new JButton("Up");
-    JButton down = new JButton("Down");
 
     // Add listeners to the buttons
     left.addActionListener(new MoveListener(-20,0));
-    right.addActionListener(new MoveListener(20,0));
-    up.addActionListener(new MoveListener(0,-20));
-    down.addActionListener(new MoveListener(0,20));
 
     
     
@@ -47,15 +41,12 @@ public class CirclePanel extends JPanel
     // top of each other.
     JPanel buttonPanel = new JPanel();
     buttonPanel.add(left);
-    buttonPanel.add(right);
-    buttonPanel.add(up);
-    buttonPanel.add(down);
 
     // Add the button panel to the bottom of the main panel
-    this.add(buttonPanel, BorderLayout.SOUTH);
+    this.add(buttonPanel, BorderLayout.NORTH);
     
     JPanel colorPanel=new JPanel();
-    
+    /*
     JButton red = new JButton("Red");
     red.setForeground(Color.red);
     JButton blue = new JButton("Blue");
@@ -80,7 +71,7 @@ public class CirclePanel extends JPanel
     colorPanel.add(choose);
     colorPanel.add(green);
     colorPanel.add(yellow);
-    this.add(colorPanel, BorderLayout.NORTH);
+    this.add(colorPanel, BorderLayout.SOUTH);*/
     }
 
     //---------------------------------------------------------------
