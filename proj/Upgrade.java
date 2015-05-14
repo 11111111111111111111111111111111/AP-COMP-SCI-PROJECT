@@ -7,7 +7,7 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-public class Game extends JPanel
+public class Upgrade extends JPanel
 {
     private final int CIRCLE_SIZE = 50;
     private int x,y;
@@ -20,20 +20,56 @@ public class Game extends JPanel
     //---------------------------------------------------------------
     // Set up circle and buttons to move it.
     //---------------------------------------------------------------
-    public Game(int width, int height)
+    public Upgrade(int width, int height)
     {
         // Set coordinates so circle starts in middle
-        x = (width/2)-(CIRCLE_SIZE/2);
-        y = (height/2)-(CIRCLE_SIZE/2); 
+        //x = (width/2)-(CIRCLE_SIZE/2);
+        //y = (height/2)-(CIRCLE_SIZE/2); 
 
-        c = Color.white;
-        this.setLayout(new BorderLayout());
-        JButton upgrade = new JButton("Upgrade");
-        upgrade.addActionListener(new MoveListener());
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.add(upgrade);
-        this.add(buttonPanel, BorderLayout.NORTH);
-        JPanel colorPanel=new JPanel();
+        //c = Color.white;
+
+        // Need a border layout to get the buttons on the bottom
+        //this.setLayout(new BorderLayout());
+
+        // Create buttons to move the circle
+        //JButton upgrade = new JButton("Upgrade");
+
+        // Add listeners to the buttons
+        //upgrade.addActionListener(new MoveListener());
+
+        // Need a panel to put the buttons on or they'll be on
+        // top of each other.
+        //JPanel buttonPanel = new JPanel();
+        //buttonPanel.add(upgrade);
+
+        // Add the button panel to the bottom of the main panel
+        //this.add(buttonPanel, BorderLayout.NORTH);
+
+        //JPanel colorPanel=new JPanel();
+        /*
+        JButton red = new JButton("Red");
+        red.setForeground(Color.red);
+        JButton blue = new JButton("Blue");
+        blue.setForeground(Color.blue);
+        JButton green = new JButton("Green");
+        green.setForeground(Color.green);
+        JButton yellow = new JButton("Yellow");
+        yellow.setForeground(Color.yellow);
+
+        choose=new JButton("Choose Color");
+
+        red.addActionListener(new ColorListener(Color.red));
+        blue.addActionListener(new ColorListener(Color.blue));
+        choose.addActionListener(new ColorListener(null));
+        green.addActionListener(new ColorListener(Color.green));
+        yellow.addActionListener(new ColorListener(Color.yellow));
+
+        colorPanel.add(red);
+        colorPanel.add(blue);
+        colorPanel.add(choose);
+        colorPanel.add(green);
+        colorPanel.add(yellow);
+        this.add(colorPanel, BorderLayout.SOUTH);*/
     }
 
     //---------------------------------------------------------------
@@ -43,8 +79,8 @@ public class Game extends JPanel
     {
         super.paintComponent(page);
 
-        page.setColor(Color.green);
-        page.drawLine(0,100, 1000,0);
+        page.setColor(Color.red);
+        //page.fillOval(x,y,CIRCLE_SIZE,CIRCLE_SIZE);
     }
 
     //---------------------------------------------------------------
@@ -52,11 +88,13 @@ public class Game extends JPanel
     //---------------------------------------------------------------
     private class MoveListener implements ActionListener, KeyListener
     {
+
         //---------------------------------------------------------------
         // Parameters tell how to move circle at click.
         //---------------------------------------------------------------
         public MoveListener()
         {
+
         }
 
         //---------------------------------------------------------------
@@ -64,19 +102,7 @@ public class Game extends JPanel
         //---------------------------------------------------------------
         public void actionPerformed(ActionEvent e)
         {
-            JFrame frame = new JFrame ("Upgrade");
-            frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-            frame.setPreferredSize(new Dimension(200,200));
-
-            frame.getContentPane().add(new Upgrade(500,500));
-
-            frame.pack();
-            frame.setVisible(true);
-            repaint();
-            }
-            
-            
-        
+        }
 
         public void keyPressed(KeyEvent evt) {
             int z = evt.getKeyCode();
