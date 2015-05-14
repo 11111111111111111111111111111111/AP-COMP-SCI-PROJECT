@@ -7,7 +7,7 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-public class CirclePanel extends JPanel
+public class Game extends JPanel
 {
     private final int CIRCLE_SIZE = 50;
     private int x,y;
@@ -15,12 +15,12 @@ public class CirclePanel extends JPanel
     private JButton choose;
     private boolean up;
     private boolean down;
-    private boolean left;
+    private boolean upgrade;
     private boolean right;
     //---------------------------------------------------------------
     // Set up circle and buttons to move it.
     //---------------------------------------------------------------
-    public CirclePanel(int width, int height)
+    public Game(int width, int height)
     {
         // Set coordinates so circle starts in middle
         x = (width/2)-(CIRCLE_SIZE/2);
@@ -32,16 +32,16 @@ public class CirclePanel extends JPanel
         this.setLayout(new BorderLayout());
 
         // Create buttons to move the circle
-        JButton left = new JButton("Left");
+        JButton upgrade = new JButton("Upgrade");
 
         // Add listeners to the buttons
-        left.addActionListener(new MoveListener(-20,0));
+        upgrade.addActionListener(new MoveListener(-20));
 
 
         // Need a panel to put the buttons on or they'll be on
         // top of each other.
         JPanel buttonPanel = new JPanel();
-        buttonPanel.add(left);
+        buttonPanel.add(upgrade);
 
         // Add the button panel to the bottom of the main panel
         this.add(buttonPanel, BorderLayout.NORTH);
@@ -90,15 +90,13 @@ public class CirclePanel extends JPanel
     private class MoveListener implements ActionListener, KeyListener
     {
         private int dx;
-        private int dy;
 
         //---------------------------------------------------------------
         // Parameters tell how to move circle at click.
         //---------------------------------------------------------------
-        public MoveListener(int dx, int dy)
+        public MoveListener(int dx)
         {
             this.dx = dx;
-            this.dy = dy;
         }
 
         //---------------------------------------------------------------
@@ -107,15 +105,8 @@ public class CirclePanel extends JPanel
         public void actionPerformed(ActionEvent e)
         {
             x += dx;
-            y += dy;
-            if(down)
-            y+=5;
-            if(up)
-            y-=5;
-            if(left)
+            if(upgrade)
             x-=5;
-            if(right)
-            x+=5;
             repaint();
         }
 
@@ -126,7 +117,7 @@ public class CirclePanel extends JPanel
                 down=true;
                 break;
                 case(KeyEvent.VK_LEFT):
-                left=true;
+                upgrade=true;
                 //xinc= -1;
                 // xPos+= 5*xinc;
                 break;
@@ -156,7 +147,7 @@ public class CirclePanel extends JPanel
                 //xinc = 0;
                 break;
                 case(KeyEvent.VK_LEFT):     
-                left=false;
+                upgrade=false;
                 //xinc= 0;
                 break;
                 case(KeyEvent.VK_RIGHT):

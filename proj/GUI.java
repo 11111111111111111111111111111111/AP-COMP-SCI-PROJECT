@@ -17,9 +17,9 @@ public class GUI
     {
 	JFrame frame = new JFrame ("MoveCircle");
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	frame.setPreferredSize(new Dimension(500,500));
+	frame.setPreferredSize(new Dimension(1200,800));
 
-	frame.getContentPane().add(new CirclePanel(500,500));
+	frame.getContentPane().add(new Game(500,500));
 
 	frame.pack();
 	frame.setVisible(true);
