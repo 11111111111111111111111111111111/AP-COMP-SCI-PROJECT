@@ -1,11 +1,8 @@
-
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
 /**
  * Write a description of class Player here.
- * 
- * 
- * 
- * 
- * 
  * 
  * 
  * //WE ARE STARTING OFF BY ONLY DOING THE MAGE
@@ -13,37 +10,19 @@
  * 
  * 
  * 
- * 
- * 
- * 
- * 
- * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Player
+public abstract class Player
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Player
-     */
-    public Player()
-    {
-        // initialise instance variables
-        x = 0;
+    private int health;
+    private int gold;
+    
+    
+    public int getHealth() {
+        return health;
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+    
+    
+    
 }
