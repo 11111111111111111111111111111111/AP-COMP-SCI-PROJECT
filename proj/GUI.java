@@ -15,7 +15,7 @@ public class GUI
     //-----------------------------------
     public static void main(String[] args)
     {
-	JFrame frame = new JFrame ("MoveCircle");
+	JFrame frame = new JFrame ("Stay Alive");
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	frame.setPreferredSize(new Dimension(1200,800));
 
