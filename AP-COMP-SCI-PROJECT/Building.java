@@ -5,7 +5,7 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public static class Building
+public class Building
 {
     // instance variables - replace the example below with your own
     private int max;

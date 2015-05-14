@@ -8,27 +8,21 @@
 public class Village
 {
     // instance variables - replace the example below with your own
-    private int population;
-    private int max;
+    private int popu; // # of population
+    private int maxpop; // max population
+    private int build; // # of buildings
+    private int maxbuild; // max building
 
     /**
      * Constructor for objects of class Villiage
      */
     public Village()
     {
-        // initialise instance variables
-        x = 0;
+        build=10;
+        maxbuild=
+        
+        popu=20;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+    
 }
