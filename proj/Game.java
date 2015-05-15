@@ -44,13 +44,7 @@ public class Game extends JPanel
         this.add(buttonPanel, BorderLayout.NORTH);
         JPanel colorPanel=new JPanel();
         //test player
-        try {
-            //path for image file
-            String path = "pika.png";
-           pikachu = ImageIO.read(new File(path));
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        Player pikachu=new Player(100,0,1,ImageIO.read(new File("pika.png")));
     }
 
     //---------------------------------------------------------------
