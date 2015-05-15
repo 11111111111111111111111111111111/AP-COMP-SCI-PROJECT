@@ -56,7 +56,7 @@ public class Game extends JPanel
         //---------------------------------------------------------------
         // Parameters tell how to move circle at click.
         //---------------------------------------------------------------
-        ActionListener timerAction = new ActionListener();
+        //ActionListener timerAction = new ActionListener();
         public MoveListener()
         {
         }
@@ -80,12 +80,12 @@ public class Game extends JPanel
             JFrame frame = new JFrame ("Upgrade");
             frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             frame.setPreferredSize(new Dimension(200,200));
-            Timer moveSlimeBall = new Timer(10 , e);
+            /*Timer moveSlimeBall = new Timer(10 , e);
              if(evt.getSource() == moveSlimeBall){
                 slimeX += slimeXSpeed;
                 slimeY += slimeYSpeed;
                 repaint();
-            }
+            }*/
             frame.getContentPane().add(new Upgrade(500,500));
 
             frame.pack();
