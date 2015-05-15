@@ -20,7 +20,7 @@ public class Mage extends Player
     }
     
     public void shoot(int x, int y, boolean up, boolean right){
-        
+        Projectile projec= new Project();
         
         
     }
