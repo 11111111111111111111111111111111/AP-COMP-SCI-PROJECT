@@ -7,6 +7,14 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.JFrame;
 public class Game extends JPanel
 {
     private final int CIRCLE_SIZE = 50;
@@ -17,7 +25,7 @@ public class Game extends JPanel
     private boolean down;
     private boolean upgrade;
     private boolean right;
-
+    private BufferedImage pikachu;
     //---------------------------------------------------------------
     // Set up circle and buttons to move it.
     //---------------------------------------------------------------
@@ -35,6 +43,14 @@ public class Game extends JPanel
         buttonPanel.add(upgrade);
         this.add(buttonPanel, BorderLayout.NORTH);
         JPanel colorPanel=new JPanel();
+        //test player
+        try {
+            //path for image file
+            String path = "pika.png";
+           pikachu = ImageIO.read(new File(path));
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     //---------------------------------------------------------------
@@ -46,11 +62,13 @@ public class Game extends JPanel
 
         page.setColor(Color.green);
         page.drawLine(0,100, 1000,0);
+        page.drawImage(pikachu, 100, 100, this);
     }
 
     //---------------------------------------------------------------
     // Class to listen for button clicks that move circle.
     //---------------------------------------------------------------
+    
     private class MoveListener implements ActionListener, KeyListener
     {
         //---------------------------------------------------------------

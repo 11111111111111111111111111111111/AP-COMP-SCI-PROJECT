@@ -1,4 +1,14 @@
-
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.JFrame;
 /**
  * Write a description of class mage here.
  * 
@@ -13,10 +23,10 @@ public class Mage extends Player
     /**
      * Constructor for objects of class mage
      */
-    public Mage(int hp, int dmg, int spd)
+    public Mage(int hp, int dmg, int spd, BufferedImage player)
     {
         // initialise instance variables
-        super(hp,dmg,spd);
+        super(hp,dmg,spd, player);
     }
     
     public void shoot(int x, int y, boolean up, boolean right){

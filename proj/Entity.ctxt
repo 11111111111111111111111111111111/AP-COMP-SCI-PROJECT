@@ -7,4 +7,6 @@ comment2.params=
 comment2.target=int\ decreaseHealth()
 comment3.params=
 comment3.target=int\ getSpeed()
-numComments=4
+comment4.params=
+comment4.target=java.awt.image.BufferedImage\ getPic()
+numComments=5
