@@ -21,29 +21,52 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Player
+public class Player extends Entity
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Player
-     */
-    public Player()
+    private int health;
+    private int damage;
+    private int speed;
+    public Player(int hp, int dmg, int spd)
     {
-        // initialise instance variables
-        x = 0;
+        health = hp;
+        damage = dmg;
+        speed = spd;
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
+    
+    public int getDamage()
     {
-        // put your code here
-        return x + y;
+        return damage;
+    }
+    
+    public int upgDamage()
+    {
+        damage+=5;
+        return damage;
+    }
+    
+    public int getHealth()
+    {
+        return health;
+    }
+    
+    public int upgHealth()
+    {
+        health+=5;
+        return health;
+    }
+    
+    public int decreaseHealth(){
+        return health - 10;
+    }
+    
+    public int getSpeed()
+    {
+        return speed;
+    }
+    
+     public int upgSpeed()
+    {
+        speed+=5;
+        return speed;
     }
 }

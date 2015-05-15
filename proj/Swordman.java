@@ -5,7 +5,7 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Swordman extends Player
+public class Swordman
 {
     // instance variables - replace the example below with your own
     private int x;
@@ -13,7 +13,7 @@ public class Swordman extends Player
     /**
      * Constructor for objects of class Swordman
      */
-    public Swordman()
+    public Swordman(int hp, int dmg, int spd)
     {
         // initialise instance variables
         x = 0;

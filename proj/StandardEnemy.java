@@ -5,7 +5,7 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class StandardEnemy extends Enemy
+public class StandardEnemy extends Entity
 {
     private int health;
     private int damage;

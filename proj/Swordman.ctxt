@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.params=
-comment0.target=Swordman()
+comment0.params=hp\ dmg\ spd
+comment0.target=Swordman(int,\ int,\ int)
 comment0.text=\n\ Constructor\ for\ objects\ of\ class\ Swordman\n
 comment1.params=y
 comment1.target=int\ sampleMethod(int)
