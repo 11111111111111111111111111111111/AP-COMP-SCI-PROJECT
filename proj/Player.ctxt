@@ -1,4 +1,18 @@
 #BlueJ class context
-comment0.params=
-comment0.target=int\ getHealth()
-numComments=1
+comment0.params=hp\ dmg\ spd
+comment0.target=Player(int,\ int,\ int)
+comment1.params=
+comment1.target=int\ getDamage()
+comment2.params=
+comment2.target=int\ upgDamage()
+comment3.params=
+comment3.target=int\ getHealth()
+comment4.params=
+comment4.target=int\ upgHealth()
+comment5.params=
+comment5.target=int\ decreaseHealth()
+comment6.params=
+comment6.target=int\ getSpeed()
+comment7.params=
+comment7.target=int\ upgSpeed()
+numComments=8

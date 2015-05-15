@@ -5,7 +5,7 @@
  * @author (your name here)
  * @version (version number or date here)
  */
-public abstract class Enemy
+public abstract class Entity
 {
     private int health;
     private int damage;

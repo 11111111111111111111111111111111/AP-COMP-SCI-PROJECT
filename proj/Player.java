@@ -13,14 +13,53 @@ import java.awt.event.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public abstract class Player
+public class Player extends Entity
 {
     private int health;
-    private int gold;
+    private int damage;
+    private int speed;
+    public Player(int hp, int dmg, int spd)
+    {
+        health = hp;
+        damage = dmg;
+        speed = spd;
+    }
     
+    public int getDamage()
+    {
+        return damage;
+    }
     
-    public int getHealth() {
+    public int upgDamage()
+    {
+        damage+=5;
+        return damage;
+    }
+    
+    public int getHealth()
+    {
         return health;
+    }
+    
+    public int upgHealth()
+    {
+        health+=5;
+        return health;
+    }
+    
+    public int decreaseHealth(){
+        return health - 10;
+    }
+    
+    public int getSpeed()
+    {
+        return speed;
+    }
+    
+     public int upgSpeed()
+    {
+        speed+=5;
+        return speed;
     }
     
     

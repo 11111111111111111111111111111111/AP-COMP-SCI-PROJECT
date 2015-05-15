@@ -5,7 +5,7 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class mage extends Player
+public class Mage extends Player
 {
     // instance variables - replace the example below with your own
     private int x;
@@ -13,21 +13,26 @@ public class mage extends Player
     /**
      * Constructor for objects of class mage
      */
-    public mage()
+    public Mage(int hp, int dmg, int spd)
     {
         // initialise instance variables
-        x = 0;
+        super(hp,dmg,spd);
     }
+    
+    public void shoot(int x, int y, boolean up, boolean right){
+        Projectile projec= new Projectile();
+        
+        
+    }
+    
+    public void aoe(int x, int y){
+        
+        
+        
+    }
+    
+    
+    
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+   
 }

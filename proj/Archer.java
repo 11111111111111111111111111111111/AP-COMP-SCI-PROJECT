@@ -2,10 +2,14 @@
 /**
  * Write a description of class Archer here.
  * 
+ * //WE ARE STARTING OFF BY ONLY DOING THE MAGE
+ * ONLY IF WE HAVE TIME WILL WE DO THE OTHER CLASSES
+ * 
+ * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Archer extends Player
+public class Archer
 {
     // instance variables - replace the example below with your own
     private int x;
