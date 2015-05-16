@@ -26,8 +26,8 @@ public class Game extends JPanel
     public Game(int width, int height)
     {
         // Set coordinates so circle starts in middle
-        x = (width/2)-(CIRCLE_SIZE/2);
-        y = (height/2)-(CIRCLE_SIZE/2); 
+        x = 400;
+        y = 300; 
 
         c = Color.white;
         this.setLayout(new BorderLayout());
@@ -41,7 +41,7 @@ public class Game extends JPanel
         try {
             pikachu=new Mage(100,0,1,ImageIO.read(new File("pika.png")));
         } catch (IOException e) {
-        	e.printStackTrace();
+            e.printStackTrace();
         }
         
     }
@@ -52,10 +52,10 @@ public class Game extends JPanel
     public void paintComponent(Graphics page)
     {
         super.paintComponent(page);
-
-        page.setForeground(Color.green);
-        page.drawLine(0,100, 1000,0);
-        page.drawImage(pikachu.getPic(), 100, 100, this);
+        //green rect is where info for health, gold, etc. will be placed as text
+        page.setColor(Color.green);
+        page.fillRect(0,0, 1200,130);
+        page.drawImage(pikachu.getPic(), x, y, this);
         repaint();
     }
 
@@ -91,7 +91,7 @@ public class Game extends JPanel
         {
             JFrame frame = new JFrame ("Upgrade");
             frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-            frame.setPreferredSize(new Dimension(200,200));
+            frame.setPreferredSize(new Dimension(800,800));
             /*Timer moveSlimeBall = new Timer(10 , e);
              if(evt.getSource() == moveSlimeBall){
                 slimeX += slimeXSpeed;
@@ -110,21 +110,19 @@ public class Game extends JPanel
             switch (z) {
                 case (KeyEvent.VK_DOWN):
                 down=true;
+                y-=10;
                 break;
                 case(KeyEvent.VK_LEFT):
                 upgrade=true;
-                //xinc= -1;
-                // xPos+= 5*xinc;
+                x-=10;
                 break;
                 case(KeyEvent.VK_RIGHT):
                 right=true;
-                //xinc = 1;
-                // xPos+= 5*xinc;
+                x+=10;
                 break;
                 case(KeyEvent.VK_UP):
                 up=true;
-                //xinc = 1;
-                // xPos+= 5*xinc;
+                y+=10;
                 break;
             }
 
