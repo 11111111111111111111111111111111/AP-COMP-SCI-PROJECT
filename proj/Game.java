@@ -56,7 +56,6 @@ public class Game extends JPanel
         page.setColor(Color.green);
         page.fillRect(0,0, 1200,130);
         page.drawImage(pikachu.getPic(), x, y, this);
-        repaint();
     }
 
     //---------------------------------------------------------------
@@ -111,21 +110,24 @@ public class Game extends JPanel
                 case (KeyEvent.VK_DOWN):
                 down=true;
                 y-=10;
+                repaint();
                 break;
                 case(KeyEvent.VK_LEFT):
                 upgrade=true;
                 x-=10;
+                repaint();
                 break;
                 case(KeyEvent.VK_RIGHT):
                 right=true;
                 x+=10;
+                repaint();
                 break;
                 case(KeyEvent.VK_UP):
                 up=true;
                 y+=10;
+                repaint();
                 break;
             }
-
         }
 
         public void keyReleased(KeyEvent evt) {
@@ -152,28 +154,29 @@ public class Game extends JPanel
         }
 
         public void keyTyped(KeyEvent evt) {
-        }
-    }
-
-    private class ColorListener implements ActionListener
-    {
-        private Color a;
-        private JColorChooser g;
-        public ColorListener(Color a){
-            this.a=a;
-            g=new JColorChooser();
-        }
-
-        public void actionPerformed(ActionEvent e)
-        {
-            if (a==null){
-                c=g.showDialog(choose, "Colors", c);
+            int z = evt.getKeyCode();
+            switch (z) {
+                case (KeyEvent.VK_DOWN):
+                down=true;
+                y-=10;
+                repaint();
+                break;
+                case(KeyEvent.VK_LEFT):
+                upgrade=true;
+                x-=10;
+                repaint();
+                break;
+                case(KeyEvent.VK_RIGHT):
+                right=true;
+                x+=10;
+                repaint();
+                break;
+                case(KeyEvent.VK_UP):
+                up=true;
+                y+=10;
+                repaint();
+                break;
             }
-            else
-                c=a;
-            repaint();
-
         }
-
     }
 }

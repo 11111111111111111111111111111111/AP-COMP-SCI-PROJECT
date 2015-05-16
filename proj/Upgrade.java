@@ -109,26 +109,4 @@ public class Upgrade extends JPanel
         public void keyTyped(KeyEvent evt) {
         }
     }
-
-    private class ColorListener implements ActionListener
-    {
-        private Color a;
-        private JColorChooser g;
-        public ColorListener(Color a){
-            this.a=a;
-            g=new JColorChooser();
-        }
-
-        public void actionPerformed(ActionEvent e)
-        {
-            if (a==null){
-                c=g.showDialog(choose, "Colors", c);
-            }
-            else
-                c=a;
-            repaint();
-
-        }
-
-    }
 }
