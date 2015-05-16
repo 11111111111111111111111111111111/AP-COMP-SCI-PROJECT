@@ -1,9 +1,3 @@
-// ******************************************************************
-//   CirclePanel.java
-//
-//   A panel with a circle drawn in the center and buttons on the 
-//   bottom that move the circle.
-// ******************************************************************
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -59,9 +53,10 @@ public class Game extends JPanel
     {
         super.paintComponent(page);
 
-        page.setColor(Color.green);
+        page.setForeground(Color.green);
         page.drawLine(0,100, 1000,0);
         page.drawImage(pikachu.getPic(), 100, 100, this);
+        repaint();
     }
 
     //---------------------------------------------------------------
