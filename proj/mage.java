@@ -41,7 +41,9 @@ public class Mage extends Player
         
     }
     
-    
+    public BufferedImage getPic(){
+        return super.getPic();
+    }
     
 
    

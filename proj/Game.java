@@ -25,7 +25,7 @@ public class Game extends JPanel
     private boolean down;
     private boolean upgrade;
     private boolean right;
-    private BufferedImage pikachu;
+    private Player pikachu;
     //---------------------------------------------------------------
     // Set up circle and buttons to move it.
     //---------------------------------------------------------------
@@ -44,7 +44,12 @@ public class Game extends JPanel
         this.add(buttonPanel, BorderLayout.NORTH);
         JPanel colorPanel=new JPanel();
         //test player
-        Player pikachu=new Player(100,0,1,ImageIO.read(new File("pika.png")));
+        try {
+            pikachu=new Mage(100,0,1,ImageIO.read(new File("pika.png")));
+        } catch (IOException e) {
+        	e.printStackTrace();
+        }
+        
     }
 
     //---------------------------------------------------------------
@@ -56,7 +61,7 @@ public class Game extends JPanel
 
         page.setColor(Color.green);
         page.drawLine(0,100, 1000,0);
-        page.drawImage(pikachu, 100, 100, this);
+        page.drawImage(pikachu.getPic(), 100, 100, this);
     }
 
     //---------------------------------------------------------------

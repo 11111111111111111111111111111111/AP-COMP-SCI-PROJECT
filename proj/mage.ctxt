@@ -6,4 +6,6 @@ comment1.params=x\ y\ up\ right
 comment1.target=void\ shoot(int,\ int,\ boolean,\ boolean)
 comment2.params=x\ y
 comment2.target=void\ aoe(int,\ int)
-numComments=3
+comment3.params=
+comment3.target=java.awt.image.BufferedImage\ getPic()
+numComments=4

@@ -72,6 +72,8 @@ public class Player extends Entity
         return speed;
     }
     
-    
+    public BufferedImage getPic(){
+        return play;
+    }
     
 }
