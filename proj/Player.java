@@ -1,20 +1,20 @@
-
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.JFrame;
 /**
  * Write a description of class Player here.
  * 
  * 
- * 
- * 
- * 
- * 
- * 
  * //WE ARE STARTING OFF BY ONLY DOING THE MAGE
  * ONLY IF WE HAVE TIME WILL WE DO THE OTHER CLASSES
- * 
- * 
- * 
- * 
- * 
  * 
  * 
  * 
@@ -26,11 +26,13 @@ public class Player extends Entity
     private int health;
     private int damage;
     private int speed;
-    public Player(int hp, int dmg, int spd)
+    private BufferedImage play;
+    public Player(int hp, int dmg, int spd, BufferedImage player)
     {
         health = hp;
         damage = dmg;
         speed = spd;
+        play=player;
     }
     
     public int getDamage()
@@ -69,4 +71,9 @@ public class Player extends Entity
         speed+=5;
         return speed;
     }
+    
+    public BufferedImage getPic(){
+        return play;
+    }
+    
 }

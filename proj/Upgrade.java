@@ -22,54 +22,8 @@ public class Upgrade extends JPanel
     //---------------------------------------------------------------
     public Upgrade(int width, int height)
     {
-        // Set coordinates so circle starts in middle
-        //x = (width/2)-(CIRCLE_SIZE/2);
-        //y = (height/2)-(CIRCLE_SIZE/2); 
-
-        //c = Color.white;
-
-        // Need a border layout to get the buttons on the bottom
-        //this.setLayout(new BorderLayout());
-
-        // Create buttons to move the circle
-        //JButton upgrade = new JButton("Upgrade");
-
-        // Add listeners to the buttons
-        //upgrade.addActionListener(new MoveListener());
-
-        // Need a panel to put the buttons on or they'll be on
-        // top of each other.
-        //JPanel buttonPanel = new JPanel();
-        //buttonPanel.add(upgrade);
-
-        // Add the button panel to the bottom of the main panel
-        //this.add(buttonPanel, BorderLayout.NORTH);
-
-        //JPanel colorPanel=new JPanel();
-        /*
-        JButton red = new JButton("Red");
-        red.setForeground(Color.red);
-        JButton blue = new JButton("Blue");
-        blue.setForeground(Color.blue);
-        JButton green = new JButton("Green");
-        green.setForeground(Color.green);
-        JButton yellow = new JButton("Yellow");
-        yellow.setForeground(Color.yellow);
-
-        choose=new JButton("Choose Color");
-
-        red.addActionListener(new ColorListener(Color.red));
-        blue.addActionListener(new ColorListener(Color.blue));
-        choose.addActionListener(new ColorListener(null));
-        green.addActionListener(new ColorListener(Color.green));
-        yellow.addActionListener(new ColorListener(Color.yellow));
-
-        colorPanel.add(red);
-        colorPanel.add(blue);
-        colorPanel.add(choose);
-        colorPanel.add(green);
-        colorPanel.add(yellow);
-        this.add(colorPanel, BorderLayout.SOUTH);*/
+        
+        
     }
 
     //---------------------------------------------------------------
@@ -154,27 +108,5 @@ public class Upgrade extends JPanel
 
         public void keyTyped(KeyEvent evt) {
         }
-    }
-
-    private class ColorListener implements ActionListener
-    {
-        private Color a;
-        private JColorChooser g;
-        public ColorListener(Color a){
-            this.a=a;
-            g=new JColorChooser();
-        }
-
-        public void actionPerformed(ActionEvent e)
-        {
-            if (a==null){
-                c=g.showDialog(choose, "Colors", c);
-            }
-            else
-                c=a;
-            repaint();
-
-        }
-
     }
 }

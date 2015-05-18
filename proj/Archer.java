@@ -1,4 +1,14 @@
-
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.JFrame;
 /**
  * Write a description of class Archer here.
  * 
@@ -9,29 +19,13 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Archer
+public class Archer extends Player
 {
     // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Archer
-     */
-    public Archer()
+    public Archer(int hp, int dmg, int spd, BufferedImage player)
     {
         // initialise instance variables
-        x = 0;
+        super(hp,dmg,spd, player);
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
 }

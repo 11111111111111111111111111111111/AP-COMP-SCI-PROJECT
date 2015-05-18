@@ -10,15 +10,27 @@ import java.awt.event.*;
 public class Projectile extends JPanel implements ActionListener
 {
     //ActionListener timerAction = new ActionListener();
-    public void actionPerformed(ActionEvent evt) {
-       
-        Timer moveSlimeBall = new Timer(10 , timerAction);
+    private int slimeX;
+    private int slimeY;
+    private int slimeSpeed;
+    private Timer timer;
+    
+     public void Projectile()
+    {
+        timer=new Timer(13, this);
+        timer.start();
+        requestFocus();
+        slimeSpeed=4;
 
-        if(evt.getSource() == moveSlimeBall){
-            slimeX += slimeXSpeed;
-            slimeY += slimeYSpeed;
+
+    }
+    public void actionPerformed(ActionEvent evt) {
+
+        
+            slimeX += slimeSpeed;
+            slimeY += slimeSpeed;
             repaint();
-        }
+        
     }
     
     public void paintComponent(Graphics page)
