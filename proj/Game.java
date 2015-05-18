@@ -48,7 +48,7 @@ public class Game extends JPanel
         JPanel colorPanel=new JPanel();
         //test player
         try {
-            pikachu=new mage(100,0,1,ImageIO.read(new File("pika.png")));
+            pikachu=new Player(100,0,1,ImageIO.read(new File("pika.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }

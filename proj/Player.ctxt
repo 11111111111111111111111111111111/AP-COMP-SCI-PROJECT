@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.params=hp\ dmg\ spd\ player
-comment0.target=Player(int,\ int,\ int,\ java.awt.image.BufferedImage)
+comment0.params=hp\ dmg\ spd\ player\ positionX\ positionY
+comment0.target=Player(int,\ int,\ int,\ java.awt.image.BufferedImage,\ int,\ int)
 comment1.params=
 comment1.target=int\ getDamage()
 comment2.params=

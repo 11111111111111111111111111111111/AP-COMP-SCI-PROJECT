@@ -20,6 +20,7 @@ public abstract class Entity
     private int health;
     private int damage;
     private int speed;
+    private int x,y;
     private BufferedImage picture;
     public abstract int getDamage();
     public abstract int getHealth();
