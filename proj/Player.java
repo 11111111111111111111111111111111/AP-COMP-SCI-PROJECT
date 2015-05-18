@@ -27,12 +27,17 @@ public class Player extends Entity
     private int damage;
     private int speed;
     private BufferedImage play;
-    public Player(int hp, int dmg, int spd, BufferedImage player)
+    private int x;
+    private int y;
+    
+    public Player(int hp, int dmg, int spd, BufferedImage player, int positionX, int positionY)
     {
         health = hp;
         damage = dmg;
         speed = spd;
         play=player;
+        x=positionX;
+        y=positionY;
     }
     
     public int getDamage()
