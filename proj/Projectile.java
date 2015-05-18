@@ -1,4 +1,6 @@
-
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
 /**
  * Write a description of class Projectile here.
  * 
@@ -7,9 +9,9 @@
  */
 public class Projectile extends JPanel implements ActionListener
 {
-
+    //ActionListener timerAction = new ActionListener();
     public void actionPerformed(ActionEvent evt) {
-        ActionListener timerAction = new ActionListener()
+       
         Timer moveSlimeBall = new Timer(10 , timerAction);
 
         if(evt.getSource() == moveSlimeBall){
