@@ -19,7 +19,7 @@ public class GUI
         int gold=1000;
     JFrame frame = new JFrame ("Stay Alive");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setPreferredSize(new Dimension(1200,800);
+    frame.setPreferredSize(new Dimension(1200,800));
 
     frame.getContentPane().add(new Game(500,500));
 

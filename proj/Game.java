@@ -40,7 +40,7 @@ public class Game extends JPanel
         JPanel colorPanel=new JPanel();
         //test player
         try {
-            pikachu=new mage(100,0,1,ImageIO.read(new File("pika.png")));
+            pikachu=new Player(100,0,1,ImageIO.read(new File("pika.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -56,22 +56,7 @@ public class Game extends JPanel
         //green rect is where info for health, gold, etc. will be placed as text
         page.setColor(Color.green);
         page.fillRect(0,0, 1200,130);
-        
-        if(right){
-            xinc = 1;
-            x+= 4*xinc;
-        }
-        else if (!right){
-            xinc= 0; 
-        }
-        if(left){
-            xinc= -1;
-            x+= 4*xinc;
-        }
-        else if (!left){
-            xinc= 0; 
-        }
-        page.drawImage(pikachu.getPic(), x, y, this);
+        page.drawImage(pikachu.getPic(), 100, 100, this);
     }
 
     //---------------------------------------------------------------
@@ -108,22 +93,22 @@ public class Game extends JPanel
             switch (z) {
                 case (KeyEvent.VK_DOWN):
                 down=true;
-                y-=10;
+                //y-=10;
                 repaint();
                 break;
                 case(KeyEvent.VK_LEFT):
                 upgrade=true;
-                x-=10;
+                //x-=10;
                 repaint();
                 break;
                 case(KeyEvent.VK_RIGHT):
                 right=true;
-                x+=10;
+                //x+=10;
                 repaint();
                 break;
                 case(KeyEvent.VK_UP):
                 up=true;
-                y+=10;
+                //y+=10;
                 repaint();
                 break;
             }
@@ -157,22 +142,22 @@ public class Game extends JPanel
             switch (z) {
                 case (KeyEvent.VK_DOWN):
                 down=true;
-                y-=10;
+                //y-=10;
                 repaint();
                 break;
                 case(KeyEvent.VK_LEFT):
                 upgrade=true;
-                x-=10;
+                //x-=10;
                 repaint();
                 break;
                 case(KeyEvent.VK_RIGHT):
                 right=true;
-                x+=10;
+                //x+=10;
                 repaint();
                 break;
                 case(KeyEvent.VK_UP):
                 up=true;
-                y+=10;
+                //y+=10;
                 repaint();
                 break;
             }
