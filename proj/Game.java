@@ -11,11 +11,6 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 public class Game extends JPanel
 {
-    private final int CIRCLE_SIZE = 50;
-    private int x,y;
-    private int xinc;
-    private Color c;
-    private JButton choose;
     private boolean up;
     private boolean down;
     private boolean upgrade;
@@ -32,12 +27,9 @@ public class Game extends JPanel
     {
         // Set coordinates so circle starts in middle
         
-        x = 400;
-        y = 300; 
         health=10;
         gold=1000;
 
-        c = Color.white;
         this.setLayout(new BorderLayout());
         JButton upgrade = new JButton("Upgrade");
         upgrade.addActionListener(new MoveListener());
