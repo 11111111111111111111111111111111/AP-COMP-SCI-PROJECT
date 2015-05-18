@@ -23,6 +23,8 @@ public class Game extends JPanel
     private boolean right;
     private Player pikachu;
     private Timer timer;
+    private int health;
+    private int gold;
     //---------------------------------------------------------------
     // Set up circle and buttons to move it.
     //---------------------------------------------------------------
@@ -32,6 +34,8 @@ public class Game extends JPanel
         
         x = 400;
         y = 300; 
+        health=10;
+        gold=1000;
 
         c = Color.white;
         this.setLayout(new BorderLayout());
@@ -39,11 +43,12 @@ public class Game extends JPanel
         upgrade.addActionListener(new MoveListener());
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(upgrade);
+        buttonPanel.add(new infoPanel(health,gold));
         this.add(buttonPanel, BorderLayout.NORTH);
         JPanel colorPanel=new JPanel();
         //test player
         try {
-            pikachu=new Mage(100,0,1,ImageIO.read(new File("pika.png")));
+            pikachu=new mage(100,0,1,ImageIO.read(new File("pika.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
