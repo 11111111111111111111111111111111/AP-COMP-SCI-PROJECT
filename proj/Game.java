@@ -46,7 +46,7 @@ public class Game extends JPanel
         JPanel colorPanel=new JPanel();
         //test player
         try {
-            pikachu=new Player(100,0,1,ImageIO.read(new File("pika1.png")),400,300);
+            pikachu=new Player(100,0,1,ImageIO.read(new File("pika1.png")),40,300);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -62,14 +62,14 @@ public class Game extends JPanel
         //green rect is where info for health, gold, etc. will be placed as text
         page.setColor(Color.green);
         page.fillRect(0,0, 1200,130);
-        page.drawImage(pikachu.getPic(), 100, 100, this);
+        page.drawImage(pikachu.getPic(), pikachu.getX(), pikachu.getY(), this);
         repaint();
     }
 
     //---------------------------------------------------------------
     // Class to listen for button clicks that move circle.
     //---------------------------------------------------------------
-
+    
     private class MoveListener implements ActionListener, KeyListener
     {
         //---------------------------------------------------------------
@@ -100,22 +100,22 @@ public class Game extends JPanel
             switch (z) {
                 case (KeyEvent.VK_DOWN):
                 down=true;
-                //y-=10;
+                pikachu.down();
                 repaint();
                 break;
                 case(KeyEvent.VK_LEFT):
                 upgrade=true;
-                //x-=10;
+                pikachu.left();
                 repaint();
                 break;
                 case(KeyEvent.VK_RIGHT):
                 right=true;
-                //x+=10;
+                pikachu.right();
                 repaint();
                 break;
                 case(KeyEvent.VK_UP):
                 up=true;
-                //y+=10;
+                pikachu.up();
                 repaint();
                 break;
             }
@@ -127,18 +127,22 @@ public class Game extends JPanel
                 case(KeyEvent.VK_UP):     
                 up=false;
                 //xinc= 0;
+                repaint();
                 break;
                 case(KeyEvent.VK_DOWN):
                 down=false;
                 //xinc = 0;
+                repaint();
                 break;
                 case(KeyEvent.VK_LEFT):     
                 upgrade=false;
                 //xinc= 0;
+                repaint();
                 break;
                 case(KeyEvent.VK_RIGHT):
                 right=false;
                 //xinc = 0;
+                repaint();
                 break;
             }
 
@@ -149,22 +153,22 @@ public class Game extends JPanel
             switch (z) {
                 case (KeyEvent.VK_DOWN):
                 down=true;
-                //y-=10;
+                pikachu.down();
                 repaint();
                 break;
                 case(KeyEvent.VK_LEFT):
                 upgrade=true;
-                //x-=10;
+                pikachu.left();
                 repaint();
                 break;
                 case(KeyEvent.VK_RIGHT):
                 right=true;
-                //x+=10;
+                pikachu.right();
                 repaint();
                 break;
                 case(KeyEvent.VK_UP):
                 up=true;
-                //y+=10;
+                pikachu.up();
                 repaint();
                 break;
             }

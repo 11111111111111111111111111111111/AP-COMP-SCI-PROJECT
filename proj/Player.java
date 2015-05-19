@@ -93,4 +93,12 @@ public class Player extends Entity
     public void down() {
         y-=10;
     }
+    
+    public int getX(){
+        return x;
+    }
+    
+    public int getY(){
+        return y;
+    }
 }
