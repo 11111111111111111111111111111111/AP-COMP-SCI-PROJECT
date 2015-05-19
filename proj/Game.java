@@ -40,7 +40,7 @@ public class Game extends JPanel
         JPanel colorPanel=new JPanel();
         //test player
         try {
-            pikachu=new Player(100,0,1,ImageIO.read(new File("pika.png")));
+            pikachu=new Player(100,0,1,ImageIO.read(new File("pika.png")),100,100);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -57,6 +57,7 @@ public class Game extends JPanel
         page.setColor(Color.green);
         page.fillRect(0,0, 1200,130);
         page.drawImage(pikachu.getPic(), 100, 100, this);
+        repaint();
     }
 
     //---------------------------------------------------------------
