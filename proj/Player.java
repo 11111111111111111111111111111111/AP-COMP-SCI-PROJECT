@@ -12,12 +12,6 @@ import javax.swing.JFrame;
 /**
  * Write a description of class Player here.
  * 
- * 
- * //WE ARE STARTING OFF BY ONLY DOING THE MAGE
- * ONLY IF WE HAVE TIME WILL WE DO THE OTHER CLASSES
- * 
- * 
- * 
  * @author (your name) 
  * @version (a version number or a date)
  */
@@ -81,4 +75,22 @@ public class Player extends Entity
         return play;
     }
     
+    public void right() {
+        x+=10;
+    }
+    
+    
+    public void left() {
+        x-=10;
+    }
+    
+    
+    public void up() {
+        y+=10;
+    }
+    
+    
+    public void down() {
+        y-=10;
+    }
 }

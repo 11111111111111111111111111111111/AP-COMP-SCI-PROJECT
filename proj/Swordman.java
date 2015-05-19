@@ -23,14 +23,14 @@ public class Swordman extends Player
 {
     // instance variables - replace the example below with your own
     private int x;
-
+    private int y;
     /**
      * Constructor for objects of class Swordman
      */
-    public Swordman(int hp, int dmg, int spd, BufferedImage picture)
+    public Swordman(int hp, int dmg, int spd, BufferedImage picture, int x1, int y1)
     {
         // initialise instance variables
-        super (hp,dmg,spd,picture);
+        super (hp,dmg,spd,picture,x1,y1);
     }
 
     /**

@@ -1,4 +1,4 @@
-import java.awt.*;
+    import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.Graphics;
@@ -11,6 +11,10 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 public class Game extends JPanel
 {
+    private final int CIRCLE_SIZE = 50;
+    private int xinc;
+    private Color c;
+    private JButton choose;
     private boolean up;
     private boolean down;
     private boolean upgrade;
@@ -27,9 +31,11 @@ public class Game extends JPanel
     {
         // Set coordinates so circle starts in middle
         
+       
         health=10;
         gold=1000;
 
+        c = Color.white;
         this.setLayout(new BorderLayout());
         JButton upgrade = new JButton("Upgrade");
         upgrade.addActionListener(new MoveListener());
@@ -40,7 +46,7 @@ public class Game extends JPanel
         JPanel colorPanel=new JPanel();
         //test player
         try {
-            pikachu=new Player(100,0,1,ImageIO.read(new File("pika.png")),100,100);
+            pikachu=new Player(100,0,1,ImageIO.read(new File("pika1.png")),400,300);
         } catch (IOException e) {
             e.printStackTrace();
         }
