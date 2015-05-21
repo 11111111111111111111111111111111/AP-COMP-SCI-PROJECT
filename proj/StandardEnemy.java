@@ -55,4 +55,6 @@ public class StandardEnemy extends Entity
     public BufferedImage getPic(){
         return enemy;
     }
+    
+    
 }

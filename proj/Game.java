@@ -33,10 +33,8 @@ public class Game extends JPanel
 
     public Game(int width, int height)
     {
- 
 
        
-
         health=10;
         gold=1000;
 
@@ -73,7 +71,7 @@ public class Game extends JPanel
     //---------------------------------------------------------------
     public void paintComponent(Graphics page)
     {
-       // super.paintComponent(page);
+        // super.paintComponent(page);
         //green rect is where info for health, gold, etc. will be placed as text
         page.setColor(Color.green);
         page.fillRect(0,0, 1200,130);
@@ -109,7 +107,6 @@ public class Game extends JPanel
     private class MoveUp extends AbstractAction
     {
 
-
         public void actionPerformed(ActionEvent e)
         {
             pikachu.up();
@@ -117,8 +114,6 @@ public class Game extends JPanel
     }
 
 
-
-
        
-    }
+}
 
