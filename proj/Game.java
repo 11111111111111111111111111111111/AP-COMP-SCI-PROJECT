@@ -1,4 +1,4 @@
-    import java.awt.*;
+import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.Graphics;
@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
-public class Game extends JPanel
+public class Game extends JFrame
 {
     private final int CIRCLE_SIZE = 50;
     private int xinc;
@@ -24,18 +24,34 @@ public class Game extends JPanel
     private Timer timer;
     private int health;
     private int gold;
-    //---------------------------------------------------------------
+     private static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
+            private static final String FIRE = "player fire";
+            //---------------------------------------------------------------
     // Set up circle and buttons to move it.
-    //---------------------------------------------------------------
+    //---------------------------------------------------------------   
+    static JLabel obj1 = new JLabel("hello");
     public Game(int width, int height)
     {
         // Set coordinates so circle starts in middle
+
+
+
+
+         //    Do all the layout management and what not...
+        //Container c = this.getContentPane();
+        //c.setLayout(new FlowLayout());
+       // c.add(obj1);
+
+        //      ...
+        //obj1.getInputMap(IFW).put(KeyStroke.getKeyStroke("T"), FIRE);
+        //obj1.getActionMap().put(FIRE, new FireAction(1));
         
+
        
         health=10;
         gold=1000;
 
-        c = Color.white;
+        //c = Color.white;
         this.setLayout(new BorderLayout());
         JButton upgrade = new JButton("Upgrade");
         upgrade.addActionListener(new MoveListener());
@@ -58,7 +74,7 @@ public class Game extends JPanel
     //---------------------------------------------------------------
     public void paintComponent(Graphics page)
     {
-        super.paintComponent(page);
+       // super.paintComponent(page);
         //green rect is where info for health, gold, etc. will be placed as text
         page.setColor(Color.green);
         page.fillRect(0,0, 1200,130);
@@ -69,8 +85,8 @@ public class Game extends JPanel
     //---------------------------------------------------------------
     // Class to listen for button clicks that move circle.
     //---------------------------------------------------------------
-    
-    private class MoveListener implements ActionListener, KeyListener
+
+    private class MoveListener implements ActionListener
     {
         //---------------------------------------------------------------
         // Parameters tell how to move circle at click.
@@ -95,83 +111,6 @@ public class Game extends JPanel
             repaint();
         }
 
-        public void keyPressed(KeyEvent evt) {
-            int z = evt.getKeyCode();
-            switch (z) {
-                case (KeyEvent.VK_DOWN):
-                down=true;
-                pikachu.down();
-                repaint();
-                break;
-                case(KeyEvent.VK_LEFT):
-                upgrade=true;
-                pikachu.left();
-                repaint();
-                break;
-                case(KeyEvent.VK_RIGHT):
-                right=true;
-                pikachu.right();
-                repaint();
-                break;
-                case(KeyEvent.VK_UP):
-                up=true;
-                pikachu.up();
-                repaint();
-                break;
-            }
-        }
-
-        public void keyReleased(KeyEvent evt) {
-            int zz = evt.getKeyCode();
-            switch (zz) {
-                case(KeyEvent.VK_UP):     
-                up=false;
-                //xinc= 0;
-                repaint();
-                break;
-                case(KeyEvent.VK_DOWN):
-                down=false;
-                //xinc = 0;
-                repaint();
-                break;
-                case(KeyEvent.VK_LEFT):     
-                upgrade=false;
-                //xinc= 0;
-                repaint();
-                break;
-                case(KeyEvent.VK_RIGHT):
-                right=false;
-                //xinc = 0;
-                repaint();
-                break;
-            }
-
-        }
-
-        public void keyTyped(KeyEvent evt) {
-            int z = evt.getKeyCode();
-            switch (z) {
-                case (KeyEvent.VK_DOWN):
-                down=true;
-                pikachu.down();
-                repaint();
-                break;
-                case(KeyEvent.VK_LEFT):
-                upgrade=true;
-                pikachu.left();
-                repaint();
-                break;
-                case(KeyEvent.VK_RIGHT):
-                right=true;
-                pikachu.right();
-                repaint();
-                break;
-                case(KeyEvent.VK_UP):
-                up=true;
-                pikachu.up();
-                repaint();
-                break;
-            }
-        }
+       
     }
 }

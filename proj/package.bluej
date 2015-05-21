@@ -11,17 +11,20 @@ dependency3.type=UsesDependency
 dependency4.from=GUI
 dependency4.to=Game
 dependency4.type=UsesDependency
-package.editor.height=557
-package.editor.width=1126
-<<<<<<< HEAD
-package.editor.x=0
-package.editor.y=57
-=======
-package.editor.x=192
-package.editor.y=22
->>>>>>> 074a104b6425e39d8e3f09ac2c3880f00ab2d5f4
-package.numDependencies=4
-package.numTargets=9
+dependency5.from=Game2
+dependency5.to=Player
+dependency5.type=UsesDependency
+dependency6.from=Game2
+dependency6.to=Upgrade
+dependency6.type=UsesDependency
+objectbench.height=100
+objectbench.width=918
+package.editor.height=551
+package.editor.width=1121
+package.editor.x=-2
+package.editor.y=95
+package.numDependencies=6
+package.numTargets=11
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
@@ -31,253 +34,136 @@ readme.editor.x=69
 readme.editor.y=22
 target1.editor.height=700
 target1.editor.width=900
-<<<<<<< HEAD
-target1.editor.x=442
-target1.editor.y=90
-=======
-<<<<<<< HEAD
-target1.editor.x=81
-target1.editor.y=323
-=======
 target1.editor.x=69
 target1.editor.y=200
->>>>>>> 074a104b6425e39d8e3f09ac2c3880f00ab2d5f4
->>>>>>> fd61651cf509aa0f2625699bd0e45afb3ca732cc
 target1.height=50
 target1.name=GUI
 target1.naviview.expanded=true
 target1.showInterface=false
 target1.type=ClassTarget
+target1.typeParameters=
 target1.width=80
-<<<<<<< HEAD
-target1.x=310
-target1.y=200
-target2.editor.height=700
-target2.editor.width=900
-target2.editor.x=69
-target2.editor.y=200
-=======
-<<<<<<< HEAD
-target1.x=340
-target1.y=50
-=======
 target1.x=580
 target1.y=290
->>>>>>> 074a104b6425e39d8e3f09ac2c3880f00ab2d5f4
+target10.editor.height=700
+target10.editor.width=900
+target10.editor.x=826
+target10.editor.y=152
+target10.height=50
+target10.name=MyGame
+target10.showInterface=false
+target10.type=ClassTarget
+target10.typeParameters=
+target10.width=80
+target10.x=50
+target10.y=180
+target11.editor.height=700
+target11.editor.width=900
+target11.editor.x=323
+target11.editor.y=42
+target11.height=50
+target11.name=Entity
+target11.naviview.expanded=false
+target11.showInterface=false
+target11.type=AbstractTarget
+target11.typeParameters=
+target11.width=80
+target11.x=930
+target11.y=210
 target2.editor.height=700
 target2.editor.width=900
 target2.editor.x=0
 target2.editor.y=322
->>>>>>> fd61651cf509aa0f2625699bd0e45afb3ca732cc
 target2.height=50
 target2.name=Swordman
 target2.naviview.expanded=true
 target2.showInterface=false
 target2.type=ClassTarget
+target2.typeParameters=
 target2.width=80
-<<<<<<< HEAD
-target2.x=580
-target2.y=290
-=======
-<<<<<<< HEAD
-target2.x=430
-target2.y=350
-target3.editor.height=700
-target3.editor.width=900
-target3.editor.x=323
-target3.editor.y=42
-target3.height=50
-target3.name=Upgrade
-=======
 target2.x=360
 target2.y=50
->>>>>>> fd61651cf509aa0f2625699bd0e45afb3ca732cc
-target3.editor.height=700
-target3.editor.width=900
-target3.editor.x=323
-target3.editor.y=42
 target3.height=50
-<<<<<<< HEAD
 target3.name=Upgrade
-=======
-target3.name=Player
->>>>>>> 074a104b6425e39d8e3f09ac2c3880f00ab2d5f4
->>>>>>> fd61651cf509aa0f2625699bd0e45afb3ca732cc
-target3.naviview.expanded=false
 target3.showInterface=false
 target3.type=ClassTarget
+target3.typeParameters=
 target3.width=80
-<<<<<<< HEAD
-target3.x=360
-target3.y=50
-=======
-<<<<<<< HEAD
-target3.x=470
-target3.y=50
-=======
-target3.x=760
-target3.y=120
->>>>>>> 074a104b6425e39d8e3f09ac2c3880f00ab2d5f4
->>>>>>> fd61651cf509aa0f2625699bd0e45afb3ca732cc
+target3.x=90
+target3.y=10
 target4.editor.height=700
 target4.editor.width=900
-target4.editor.x=232
-target4.editor.y=42
+target4.editor.x=358
+target4.editor.y=49
 target4.height=50
 target4.name=Player
-<<<<<<< HEAD
-target4.naviview.expanded=false
-target4.showInterface=false
-target4.type=ClassTarget
-target4.width=80
-target4.x=760
-target4.y=120
-=======
 target4.naviview.expanded=true
 target4.showInterface=false
 target4.type=ClassTarget
-<<<<<<< HEAD
 target4.typeParameters=
-target4.width=80
-target4.x=90
-target4.y=10
->>>>>>> fd61651cf509aa0f2625699bd0e45afb3ca732cc
+target4.width=120
+target4.x=870
+target4.y=370
 target5.editor.height=700
 target5.editor.width=900
 target5.editor.x=323
 target5.editor.y=42
-<<<<<<< HEAD
-=======
-=======
-target4.width=120
-target4.x=860
-target4.y=380
->>>>>>> 074a104b6425e39d8e3f09ac2c3880f00ab2d5f4
->>>>>>> fd61651cf509aa0f2625699bd0e45afb3ca732cc
 target5.height=50
 target5.name=READ_THIS
 target5.naviview.expanded=false
 target5.showInterface=false
 target5.type=ClassTarget
-<<<<<<< HEAD
-target5.width=90
-target5.x=10
-target5.y=80
-target6.editor.height=700
-target6.editor.width=900
-target6.editor.x=323
-target6.editor.y=42
-=======
-<<<<<<< HEAD
 target5.typeParameters=
-target5.width=90
-target5.x=10
-target5.y=80
-=======
 target5.width=80
 target5.x=180
 target5.y=10
->>>>>>> 074a104b6425e39d8e3f09ac2c3880f00ab2d5f4
+target6.appletHeight=500
+target6.appletWidth=500
 target6.editor.height=700
 target6.editor.width=900
-target6.editor.x=31
-target6.editor.y=22
->>>>>>> fd61651cf509aa0f2625699bd0e45afb3ca732cc
+target6.editor.x=1041
+target6.editor.y=299
 target6.height=50
-target6.name=StandardEnemy
-target6.naviview.expanded=false
+target6.name=Game2
+target6.naviview.expanded=true
+target6.numberAppletParameters=0
 target6.showInterface=false
-target6.type=ClassTarget
-<<<<<<< HEAD
-target6.width=120
-target6.x=860
-target6.y=380
-=======
-<<<<<<< HEAD
+target6.type=AppletTarget
 target6.typeParameters=
-target6.width=120
-target6.x=620
-target6.y=420
+target6.width=80
+target6.x=1530
+target6.y=630
 target7.editor.height=700
 target7.editor.width=900
-target7.editor.x=721
-target7.editor.y=293
+target7.editor.x=31
+target7.editor.y=22
 target7.height=50
-target7.name=Game
+target7.name=StandardEnemy
 target7.naviview.expanded=false
 target7.showInterface=false
 target7.type=ClassTarget
 target7.typeParameters=
 target7.width=80
-target7.x=620
-target7.y=50
-=======
-target6.width=80
-target6.x=590
-target6.y=90
->>>>>>> fd61651cf509aa0f2625699bd0e45afb3ca732cc
-target7.editor.height=700
-target7.editor.width=900
-target7.editor.x=442
-target7.editor.y=22
-target7.height=50
-target7.name=Game
-target7.naviview.expanded=false
-target7.showInterface=false
-target7.type=ClassTarget
-target7.width=80
-<<<<<<< HEAD
 target7.x=590
 target7.y=90
-target8.height=50
-target8.name=infoPanel
-=======
-target7.x=310
-target7.y=200
->>>>>>> 074a104b6425e39d8e3f09ac2c3880f00ab2d5f4
 target8.editor.height=700
 target8.editor.width=900
-target8.editor.x=323
-target8.editor.y=42
+target8.editor.x=245
+target8.editor.y=96
 target8.height=50
-<<<<<<< HEAD
-target8.name=infoPanel
+target8.name=Game
+target8.naviview.expanded=false
 target8.showInterface=false
 target8.type=ClassTarget
 target8.typeParameters=
 target8.width=80
-target8.x=640
-target8.y=170
-target9.editor.height=700
-target9.editor.width=900
-target9.editor.x=492
-target9.editor.y=83
-=======
-target8.name=READ_THIS
-target8.naviview.expanded=false
->>>>>>> fd61651cf509aa0f2625699bd0e45afb3ca732cc
-target8.showInterface=false
-target8.type=ClassTarget
-target8.width=80
-target8.x=180
-target8.y=10
-target9.editor.height=700
-target9.editor.width=900
-target9.editor.x=323
-target9.editor.y=42
->>>>>>> 074a104b6425e39d8e3f09ac2c3880f00ab2d5f4
+target8.x=430
+target8.y=290
 target9.height=50
-target9.name=Entity
-target9.naviview.expanded=false
+target9.name=infoPanel
 target9.showInterface=false
-target9.type=AbstractTarget
-<<<<<<< HEAD
+target9.type=ClassTarget
 target9.typeParameters=
 target9.width=80
-target9.x=840
-target9.y=440
-=======
-target9.width=80
-target9.x=880
-target9.y=230
->>>>>>> 074a104b6425e39d8e3f09ac2c3880f00ab2d5f4
+target9.x=450
+target9.y=10
