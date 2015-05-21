@@ -51,7 +51,7 @@ public class Game extends JPanel
 
         //test player
         try {
-            pikachu=new Player(100,0,1,ImageIO.read(new File("pika1.png")),40,300);
+            pikachu=new Player(100,0,1,ImageIO.read(new File("right.gif")),40,300);
 
         } catch (IOException e) {
             e.printStackTrace();
