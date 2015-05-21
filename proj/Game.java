@@ -75,6 +75,10 @@ public class Game extends JPanel
         //green rect is where info for health, gold, etc. will be placed as text
         page.setColor(Color.green);
         page.fillRect(0,0, 1200,130);
+        
+        page.setColor(Color.black);
+        page.fillRect(0,130,1200,670);
+        
 
         page.drawImage(pikachu.getPic(), pikachu.getX(), pikachu.getY(), this);
         repaint();
