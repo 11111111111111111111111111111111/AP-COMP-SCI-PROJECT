@@ -86,12 +86,12 @@ public class Player extends Entity
     
     
     public void up() {
-        y+=10;
+        y-=10;
     }
     
     
     public void down() {
-        y-=10;
+        y+=10;
     }
     
     public int getX(){

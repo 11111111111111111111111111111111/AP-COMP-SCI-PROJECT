@@ -1,4 +1,4 @@
-    import java.awt.*;
+import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.Graphics;
@@ -24,37 +24,48 @@ public class Game extends JPanel
     private Timer timer;
     private int health;
     private int gold;
-    //---------------------------------------------------------------
-    // Set up circle and buttons to move it.
-    //---------------------------------------------------------------
+    private static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
+    private static final String DOWN = "DOWN";
+    private static final String UP = "UP";
+    private static final String LEFT = "LEFT";
+    private static final String RIGHT = "RIGHT";
     public Game(int width, int height)
     {
         // Set coordinates so circle starts in middle
-        
-       
+
         health=10;
         gold=1000;
 
         c = Color.white;
         this.setLayout(new BorderLayout());
         JButton upgrade = new JButton("Upgrade");
-        upgrade.addActionListener(new MoveListener());
+        //upgrade.addActionListener(new MoveListener());
+
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(upgrade);
         buttonPanel.add(new infoPanel(health,gold));
         this.add(buttonPanel, BorderLayout.NORTH);
         JPanel colorPanel=new JPanel();
+
         //test player
         try {
             pikachu=new Player(100,0,1,ImageIO.read(new File("pika1.png")),40,300);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("DOWN"), DOWN);
+        buttonPanel.getActionMap().put(DOWN, new MoveDown());
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("UP"), UP);
+        buttonPanel.getActionMap().put(UP, new MoveUp());
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("LEFT"), LEFT);
+        buttonPanel.getActionMap().put(LEFT, new MoveLeft());
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("RIGHT"), RIGHT);
+        buttonPanel.getActionMap().put(RIGHT, new MoveRight());
     }
 
     //---------------------------------------------------------------
-    // Draw circle on CirclePanel
+    // Repaint the game
     //---------------------------------------------------------------
     public void paintComponent(Graphics page)
     {
@@ -62,116 +73,44 @@ public class Game extends JPanel
         //green rect is where info for health, gold, etc. will be placed as text
         page.setColor(Color.green);
         page.fillRect(0,0, 1200,130);
+
         page.drawImage(pikachu.getPic(), pikachu.getX(), pikachu.getY(), this);
         repaint();
     }
-
-    //---------------------------------------------------------------
-    // Class to listen for button clicks that move circle.
-    //---------------------------------------------------------------
-    
-    private class MoveListener implements ActionListener, KeyListener
+    private class MoveDown extends AbstractAction
     {
-        //---------------------------------------------------------------
-        // Parameters tell how to move circle at click.
-        //---------------------------------------------------------------
-        public MoveListener()
+
+        public void actionPerformed(ActionEvent e)
         {
-        }
-        //---------------------------------------------------------------
-        // Change x and y coordinates and repaint.
-        //---------------------------------------------------------------
-
-        public void actionPerformed (ActionEvent e)
-        {
-            JFrame frame = new JFrame ("Upgrade");
-            frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-
-            frame.setPreferredSize(new Dimension(200,200));
-            frame.getContentPane().add(new Upgrade(500,500));
-
-            frame.pack();
-            frame.setVisible(true);
-            repaint();
-        }
-
-        public void keyPressed(KeyEvent evt) {
-            int z = evt.getKeyCode();
-            switch (z) {
-                case (KeyEvent.VK_DOWN):
-                down=true;
-                pikachu.down();
-                repaint();
-                break;
-                case(KeyEvent.VK_LEFT):
-                upgrade=true;
-                pikachu.left();
-                repaint();
-                break;
-                case(KeyEvent.VK_RIGHT):
-                right=true;
-                pikachu.right();
-                repaint();
-                break;
-                case(KeyEvent.VK_UP):
-                up=true;
-                pikachu.up();
-                repaint();
-                break;
-            }
-        }
-
-        public void keyReleased(KeyEvent evt) {
-            int zz = evt.getKeyCode();
-            switch (zz) {
-                case(KeyEvent.VK_UP):     
-                up=false;
-                //xinc= 0;
-                repaint();
-                break;
-                case(KeyEvent.VK_DOWN):
-                down=false;
-                //xinc = 0;
-                repaint();
-                break;
-                case(KeyEvent.VK_LEFT):     
-                upgrade=false;
-                //xinc= 0;
-                repaint();
-                break;
-                case(KeyEvent.VK_RIGHT):
-                right=false;
-                //xinc = 0;
-                repaint();
-                break;
-            }
-
-        }
-
-        public void keyTyped(KeyEvent evt) {
-            int z = evt.getKeyCode();
-            switch (z) {
-                case (KeyEvent.VK_DOWN):
-                down=true;
-                pikachu.down();
-                repaint();
-                break;
-                case(KeyEvent.VK_LEFT):
-                upgrade=true;
-                pikachu.left();
-                repaint();
-                break;
-                case(KeyEvent.VK_RIGHT):
-                right=true;
-                pikachu.right();
-                repaint();
-                break;
-                case(KeyEvent.VK_UP):
-                up=true;
-                pikachu.up();
-                repaint();
-                break;
-            }
+            pikachu.down();
         }
     }
+    private class MoveLeft extends AbstractAction
+    {
+
+        public void actionPerformed(ActionEvent e)
+        {
+            pikachu.left();
+        }
+    }
+    private class MoveRight extends AbstractAction
+    {
+
+        public void actionPerformed(ActionEvent e)
+        {
+            pikachu.right();
+        }
+    }
+    private class MoveUp extends AbstractAction
+    {
+
+        public void actionPerformed(ActionEvent e)
+        {
+            pikachu.up();
+        }
+    }
+
+
+
 }
+
