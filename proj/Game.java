@@ -24,19 +24,23 @@ public class Game extends JPanel
     private Timer timer;
     private int health;
     private int gold;
+
     private static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
     private static final String DOWN = "DOWN";
     private static final String UP = "UP";
     private static final String LEFT = "LEFT";
     private static final String RIGHT = "RIGHT";
+
     public Game(int width, int height)
     {
-        // Set coordinates so circle starts in middle
+ 
+
+       
 
         health=10;
         gold=1000;
 
-        c = Color.white;
+        //c = Color.white;
         this.setLayout(new BorderLayout());
         JButton upgrade = new JButton("Upgrade");
         //upgrade.addActionListener(new MoveListener());
@@ -69,7 +73,7 @@ public class Game extends JPanel
     //---------------------------------------------------------------
     public void paintComponent(Graphics page)
     {
-        super.paintComponent(page);
+       // super.paintComponent(page);
         //green rect is where info for health, gold, etc. will be placed as text
         page.setColor(Color.green);
         page.fillRect(0,0, 1200,130);
@@ -77,6 +81,7 @@ public class Game extends JPanel
         page.drawImage(pikachu.getPic(), pikachu.getX(), pikachu.getY(), this);
         repaint();
     }
+
     private class MoveDown extends AbstractAction
     {
 
@@ -104,6 +109,7 @@ public class Game extends JPanel
     private class MoveUp extends AbstractAction
     {
 
+
         public void actionPerformed(ActionEvent e)
         {
             pikachu.up();
@@ -112,5 +118,7 @@ public class Game extends JPanel
 
 
 
-}
+
+       
+    }
 

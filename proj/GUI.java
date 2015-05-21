@@ -8,11 +8,9 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class GUI
+public class GUI 
 {
-    //-----------------------------------
-    //  Set up a frame for the GUI.
-    //-----------------------------------
+ 
     public static void main(String[] args)
     {
         int hp=10;
@@ -21,7 +19,9 @@ public class GUI
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setPreferredSize(new Dimension(1200,800));
 
+
         frame.getContentPane().add(new Game(500,500));
+
 
         frame.pack();
         frame.setVisible(true);

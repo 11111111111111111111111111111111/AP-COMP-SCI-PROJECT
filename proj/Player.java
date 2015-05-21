@@ -99,6 +99,14 @@ public class Player extends Entity
     }
     
     public int getY(){
-        return y;
+       return y;
+    }
+    
+    public void setX(int xp){
+        x= xp;
+    }
+    
+    public void setY(int yp){
+       y = yp;
     }
 }
