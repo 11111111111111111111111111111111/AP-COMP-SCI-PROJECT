@@ -86,7 +86,12 @@ public class Player extends Entity
         }catch (IOException e) {
             e.printStackTrace();
         }
-    x+=10;
+        if( x > 1150){
+            x += 0;
+        }
+        else{
+            x+=10;
+        }
     }
     
     
@@ -96,7 +101,12 @@ public class Player extends Entity
         }catch (IOException e) {
             e.printStackTrace();
         }
-        x-=10;
+        if( x <= 0){
+            x +=0;
+        }
+        else{
+            x-=10;
+        }
     }
     
     
@@ -106,7 +116,12 @@ public class Player extends Entity
         }catch (IOException e) {
             e.printStackTrace();
         }
-        y-=10;
+        if(y < 100){
+            y += 0;
+        }
+        else{
+            y-=10;
+        }
     }
     
      public void run() {
@@ -120,7 +135,12 @@ public class Player extends Entity
         }catch (IOException e) {
             e.printStackTrace();
         }
-        y+=10;
+        if(y > 725){
+            y += 0;
+        }
+        else{
+            y+=10;
+        }
     }
     
     public int getX(){
