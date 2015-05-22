@@ -32,6 +32,8 @@ public class Player extends Entity
         health = hp;
         damage = dmg;
         speed = spd;
+        
+        
         play=player;
         x=positionX;
         y=positionY;

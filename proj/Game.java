@@ -27,6 +27,7 @@ public class Game extends JPanel
     private Timer timer;
     private int health;
     private int gold;
+    private BufferedImage background;
 
     private static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
     private static final String DOWN = "DOWN";
@@ -37,7 +38,7 @@ public class Game extends JPanel
 
     public Game(int width, int height)
     {
-
+ 
        
         health=10;
         gold=1000;
@@ -73,8 +74,11 @@ public class Game extends JPanel
         buttonPanel.getActionMap().put(RIGHT, new MoveRight());
         buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("SPACE"), SPACE);
         //buttonPanel.getActionMap().put(SPACE, new Moverun());
-        
-        
+        try{
+        background=ImageIO.read(new File("stadium.png"));
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //---------------------------------------------------------------
@@ -88,6 +92,7 @@ public class Game extends JPanel
         page.fillRect(0,0, 1200,130);
         page.setColor(Color.black);
         page.fillRect(0,130,1200,670);
+        page.drawImage(background, 50, 0, this);
         page.drawImage(pikachu.getPic(), pikachu.getXpic(), pikachu.getYpic(), this);
         page.drawImage(enemy.getPic(), enemy.getX(pikachu.getX()), enemy.getY(pikachu.getY()), this);
         page.drawImage(enemy1.getPic(), enemy1.getX(pikachu.getX()), enemy1.getY(pikachu.getY()), this);
