@@ -23,6 +23,9 @@ public class Player extends Entity
     private BufferedImage play;
     private int x;
     private int y;
+    //position of picture
+    private double xpic;
+    private double ypic;
     
     public Player(int hp, int dmg, int spd, BufferedImage player, int positionX, int positionY)
     {
@@ -32,6 +35,8 @@ public class Player extends Entity
         play=player;
         x=positionX;
         y=positionY;
+        xpic=positionX;
+        ypic=positionY;
     }
     
     public int getDamage()
@@ -89,6 +94,10 @@ public class Player extends Entity
         y-=10;
     }
     
+     public void run() {
+        y-=10;
+    }
+    
     
     public void down() {
         y+=10;
@@ -100,6 +109,24 @@ public class Player extends Entity
     
     public int getY(){
        return y;
+    }
+    
+    public int getXpic()
+    {
+       if(xpic<x-3)
+            xpic+=.5;
+        else if(xpic>x+3)
+           xpic-=.5;
+        return (int)xpic;
+    }
+    
+    public int getYpic()
+    {
+        if(ypic<y-3)
+            ypic+=.5;
+        else if(ypic>y+3)
+           ypic-=.5;
+        return (int)ypic;
     }
     
     public void setX(int xp){

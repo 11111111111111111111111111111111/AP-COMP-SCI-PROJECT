@@ -21,6 +21,9 @@ public class Game extends JPanel
     private boolean left;
     private boolean right;
     private Player pikachu;
+    private StandardEnemy enemy;
+    private StandardEnemy enemy1;
+    private StandardEnemy enemy2;
     private Timer timer;
     private int health;
     private int gold;
@@ -30,6 +33,7 @@ public class Game extends JPanel
     private static final String UP = "UP";
     private static final String LEFT = "LEFT";
     private static final String RIGHT = "RIGHT";
+    private static final String SPACE = "SPACE";
 
     public Game(int width, int height)
     {
@@ -52,6 +56,9 @@ public class Game extends JPanel
         //test player
         try {
             pikachu=new Player(100,0,1,ImageIO.read(new File("right.gif")),40,300);
+            enemy=new StandardEnemy(100,0,1,ImageIO.read(new File("right.gif")),50,50);
+           // enemy1=new StandardEnemy(100,0,1,ImageIO.read(new File("right.gif")),5,5);
+           // enemy2=new StandardEnemy(100,0,1,ImageIO.read(new File("right.gif")),300,300);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -64,6 +71,10 @@ public class Game extends JPanel
         buttonPanel.getActionMap().put(LEFT, new MoveLeft());
         buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("RIGHT"), RIGHT);
         buttonPanel.getActionMap().put(RIGHT, new MoveRight());
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("SPACE"), SPACE);
+        buttonPanel.getActionMap().put(SPACE, new Moverun());
+        
+        
     }
 
     //---------------------------------------------------------------
@@ -79,9 +90,23 @@ public class Game extends JPanel
         page.setColor(Color.black);
         page.fillRect(0,130,1200,670);
         
+        
+        
+        
 
-        page.drawImage(pikachu.getPic(), pikachu.getX(), pikachu.getY(), this);
+        page.drawImage(pikachu.getPic(), pikachu.getXpic(), pikachu.getYpic(), this);
+        page.drawImage(enemy.getPic(), enemy.getX(pikachu.getX()), enemy.getY(pikachu.getY()), this);
+        //page.drawImage(enemy1.getPic(), enemy1.getX(pikachu.getX()), enemy1.getY(pikachu.getY()), this);
+        //page.drawImage(enemy2.getPic(), enemy2.getX(pikachu.getX()), enemy2.getY(pikachu.getY()), this);
         repaint();
+    }
+    private class Moverun extends AbstractAction
+    {
+
+        public void actionPerformed(ActionEvent e)
+        {
+            pikachu.run();
+        }
     }
 
     private class MoveDown extends AbstractAction
@@ -116,8 +141,5 @@ public class Game extends JPanel
             pikachu.up();
         }
     }
-
-
-       
 }
 

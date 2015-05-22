@@ -21,10 +21,10 @@ public class StandardEnemy extends Entity
     private int health;
     private int damage;
     private int speed;
-    private int x;
-    private int y;
+    private double x;
+    private double y;
     private BufferedImage enemy;
-    public StandardEnemy(int hp, int dmg, int spd, int positionX, int positionY, BufferedImage image)
+    public StandardEnemy(int hp, int dmg, int spd, BufferedImage image ,int positionX, int positionY )
     {
         health = hp;
         damage = dmg;
@@ -46,6 +46,24 @@ public class StandardEnemy extends Entity
     
     public int decreaseHealth(){
         return health - 10;
+    }
+    
+    public int getX(int playerX)
+    {
+       if(x<playerX-30)
+            x+=0.05;
+        else if(x>playerX+30)
+           x-=0.05;
+        return (int)x;
+    }
+    
+    public int getY(int playerY)
+    {
+        if(y<playerY-35)
+            y+=0.05;
+        else if(y>playerY+35)
+           y-=0.05;
+        return (int)y;
     }
     
     public int getSpeed()
