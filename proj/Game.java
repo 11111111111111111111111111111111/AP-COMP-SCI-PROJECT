@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import java.util.ArrayList;
 public class Game extends JPanel
 {
     private final int CIRCLE_SIZE = 50;
@@ -28,7 +29,8 @@ public class Game extends JPanel
     private int health;
     private int gold;
     private BufferedImage background;
-
+    private ArrayList<Projectile> projectiles;
+    Projectile myProjectile;
     private static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
     private static final String DOWN = "DOWN";
     private static final String UP = "UP";
@@ -56,11 +58,12 @@ public class Game extends JPanel
 
         //test player
         try {
-            pikachu=new Player(100,0,1,ImageIO.read(new File("right.gif")),40,300);
-            enemy=new StandardEnemy(100,0,1,ImageIO.read(new File("right.gif")),50,50);
-           enemy1=new StandardEnemy(100,0,1,ImageIO.read(new File("right.gif")),5,5);
-           enemy2=new StandardEnemy(100,0,1,ImageIO.read(new File("right.gif")),300,300);
 
+           myProjectile = new Projectile(pikachu.getX(), pikachu.getY(), ImageIO.read(new File("projectile.jpg")));
+            pikachu=new Player(100,0,1,ImageIO.read(new File("r1.png")),40,300);
+            enemy=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),50,50);
+           enemy1=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),5,5);
+           enemy2=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),300,300);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -79,6 +82,7 @@ public class Game extends JPanel
         }catch (IOException e) {
             e.printStackTrace();
         }
+        buttonPanel.getActionMap().put(SPACE, new Shoot());
     }
 
     //---------------------------------------------------------------
@@ -97,36 +101,19 @@ public class Game extends JPanel
         page.drawImage(enemy.getPic(), enemy.getX(pikachu.getX()), enemy.getY(pikachu.getY()), this);
         page.drawImage(enemy1.getPic(), enemy1.getX(pikachu.getX()), enemy1.getY(pikachu.getY()), this);
         page.drawImage(enemy2.getPic(), enemy2.getX(pikachu.getX()), enemy2.getY(pikachu.getY()), this);
+        //page.drawImage(myProjectile.getPic(), myProjectile.getX(), myProjectile.getY(),this);
         repaint();
     }
-    /*private class MoveListener implements ActionListener, KeyListener
+   
+    private class Shoot extends AbstractAction
     {
-
-        //---------------------------------------------------------------
-        // Parameters tell how to move circle at click.
-        //---------------------------------------------------------------
-        public MoveListener()
-        {
-            
-        }
-
-        //---------------------------------------------------------------
-        // Change x and y coordinates and repaint.
-        //---------------------------------------------------------------
         public void actionPerformed(ActionEvent e)
         {
-            
-        }
-    }*/
-    private class Moverun extends AbstractAction
-    {
-
-        public void actionPerformed(ActionEvent e)
-        {
-            pikachu.run();
+            myProjectile.setX(pikachu.getX());
+            myProjectile.setY(pikachu.getY());
+            projectiles.add(myProjectile);
         }
     }
-
     private class MoveDown extends AbstractAction
     {
 
