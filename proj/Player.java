@@ -26,7 +26,10 @@ public class Player extends Entity
     //position of picture
     private double xpic;
     private double ypic;
-    
+    private int r;
+    private int l;
+    private int u;
+    private int d;
     public Player(int hp, int dmg, int spd, BufferedImage player, int positionX, int positionY)
     {
         health = hp;
@@ -37,6 +40,10 @@ public class Player extends Entity
         y=positionY;
         xpic=positionX;
         ypic=positionY;
+        r=0;
+        d=0;
+        u=0;
+        l=0;
     }
     
     public int getDamage()
@@ -81,10 +88,23 @@ public class Player extends Entity
     }
     
     public void right() {
-        try{
-        play=ImageIO.read(new File("right.gif"));
-        }catch (IOException e) {
-            e.printStackTrace();
+        if (r==0){
+            try{
+                    play=ImageIO.read(new File("r1.png"));
+                }
+            catch (IOException e) {
+                    e.printStackTrace();
+                }
+                r++;
+        }
+        else {
+            try{
+                    play=ImageIO.read(new File("r2.png"));
+                }
+            catch (IOException e) {
+                    e.printStackTrace();
+                }
+            r=0;
         }
         if( x > 1150){
             x += 0;
@@ -96,10 +116,23 @@ public class Player extends Entity
     
     
     public void left() {
-        try{
-        play=ImageIO.read(new File("left.gif"));
-        }catch (IOException e) {
-            e.printStackTrace();
+        if (l==0){
+            try{
+                    play=ImageIO.read(new File("l1.png"));
+                }
+            catch (IOException e) {
+                    e.printStackTrace();
+                }
+                l++;
+        }
+        else {
+            try{
+                    play=ImageIO.read(new File("l2.png"));
+                }
+            catch (IOException e) {
+                    e.printStackTrace();
+                }
+            l=0;
         }
         if( x <= 0){
             x +=0;
@@ -111,6 +144,24 @@ public class Player extends Entity
     
     
     public void up() {
+        if (u==0){
+            try{
+                    play=ImageIO.read(new File("u1.png"));
+                }
+            catch (IOException e) {
+                    e.printStackTrace();
+                }
+                u++;
+        }
+        else {
+            try{
+                    play=ImageIO.read(new File("u2.png"));
+                }
+            catch (IOException e) {
+                    e.printStackTrace();
+                }
+            u=0;
+        }
         try{
         play=ImageIO.read(new File("up.gif"));
         }catch (IOException e) {
@@ -130,6 +181,24 @@ public class Player extends Entity
     
     
     public void down() {
+        if (d==0){
+            try{
+                    play=ImageIO.read(new File("d1.png"));
+                }
+            catch (IOException e) {
+                    e.printStackTrace();
+                }
+                d++;
+        }
+        else {
+            try{
+                    play=ImageIO.read(new File("d2.png"));
+                }
+            catch (IOException e) {
+                    e.printStackTrace();
+                }
+            d=0;
+        }
         try{
         play=ImageIO.read(new File("down.gif"));
         }catch (IOException e) {

@@ -24,6 +24,7 @@ public class StandardEnemy extends Entity
     private double x;
     private double y;
     private BufferedImage enemy;
+    private int r;
     public StandardEnemy(int hp, int dmg, int spd, BufferedImage image ,int positionX, int positionY )
     {
         health = hp;
@@ -32,6 +33,7 @@ public class StandardEnemy extends Entity
         x=positionX;
         y=positionY;
         enemy=image;
+        r=0;
     }
     
     public int getDamage()
@@ -50,10 +52,32 @@ public class StandardEnemy extends Entity
     
     public int getX(int playerX)
     {
-       if(x<playerX-30)
+       if(x<playerX-30){
             x+=0.05;
-        else if(x>playerX+30)
+            if (r==0){
+            try{
+                    enemy=ImageIO.read(new File("r3.png"));
+                }
+            catch (IOException e) {
+                    e.printStackTrace();
+                }
+                r++;
+        }
+        else {
+            try{
+                    enemy=ImageIO.read(new File("r4.png"));
+                }
+            catch (IOException e) {
+                    e.printStackTrace();
+                }
+            r=0;
+        }
+            
+        }
+        else if(x>playerX+30){
            x-=0.05;
+           
+        }
         return (int)x;
     }
     
