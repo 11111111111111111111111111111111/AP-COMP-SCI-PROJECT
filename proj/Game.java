@@ -57,8 +57,8 @@ public class Game extends JPanel
         try {
             pikachu=new Player(100,0,1,ImageIO.read(new File("right.gif")),40,300);
             enemy=new StandardEnemy(100,0,1,ImageIO.read(new File("right.gif")),50,50);
-           // enemy1=new StandardEnemy(100,0,1,ImageIO.read(new File("right.gif")),5,5);
-           // enemy2=new StandardEnemy(100,0,1,ImageIO.read(new File("right.gif")),300,300);
+           enemy1=new StandardEnemy(100,0,1,ImageIO.read(new File("right.gif")),5,5);
+           enemy2=new StandardEnemy(100,0,1,ImageIO.read(new File("right.gif")),300,300);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -72,7 +72,7 @@ public class Game extends JPanel
         buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("RIGHT"), RIGHT);
         buttonPanel.getActionMap().put(RIGHT, new MoveRight());
         buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("SPACE"), SPACE);
-        buttonPanel.getActionMap().put(SPACE, new Moverun());
+        //buttonPanel.getActionMap().put(SPACE, new Moverun());
         
         
     }
@@ -86,20 +86,33 @@ public class Game extends JPanel
         //green rect is where info for health, gold, etc. will be placed as text
         page.setColor(Color.green);
         page.fillRect(0,0, 1200,130);
-        
         page.setColor(Color.black);
         page.fillRect(0,130,1200,670);
-        
-        
-        
-        
-
         page.drawImage(pikachu.getPic(), pikachu.getXpic(), pikachu.getYpic(), this);
         page.drawImage(enemy.getPic(), enemy.getX(pikachu.getX()), enemy.getY(pikachu.getY()), this);
-        //page.drawImage(enemy1.getPic(), enemy1.getX(pikachu.getX()), enemy1.getY(pikachu.getY()), this);
-        //page.drawImage(enemy2.getPic(), enemy2.getX(pikachu.getX()), enemy2.getY(pikachu.getY()), this);
+        page.drawImage(enemy1.getPic(), enemy1.getX(pikachu.getX()), enemy1.getY(pikachu.getY()), this);
+        page.drawImage(enemy2.getPic(), enemy2.getX(pikachu.getX()), enemy2.getY(pikachu.getY()), this);
         repaint();
     }
+    /*private class MoveListener implements ActionListener, KeyListener
+    {
+
+        //---------------------------------------------------------------
+        // Parameters tell how to move circle at click.
+        //---------------------------------------------------------------
+        public MoveListener()
+        {
+            
+        }
+
+        //---------------------------------------------------------------
+        // Change x and y coordinates and repaint.
+        //---------------------------------------------------------------
+        public void actionPerformed(ActionEvent e)
+        {
+            
+        }
+    }*/
     private class Moverun extends AbstractAction
     {
 

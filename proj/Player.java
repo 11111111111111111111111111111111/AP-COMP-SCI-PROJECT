@@ -81,16 +81,31 @@ public class Player extends Entity
     }
     
     public void right() {
-        x+=10;
+        try{
+        play=ImageIO.read(new File("right.gif"));
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+    x+=10;
     }
     
     
     public void left() {
+        try{
+        play=ImageIO.read(new File("left.gif"));
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
         x-=10;
     }
     
     
     public void up() {
+        try{
+        play=ImageIO.read(new File("up.gif"));
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
         y-=10;
     }
     
@@ -100,6 +115,11 @@ public class Player extends Entity
     
     
     public void down() {
+        try{
+        play=ImageIO.read(new File("down.gif"));
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
         y+=10;
     }
     
