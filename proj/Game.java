@@ -68,9 +68,9 @@ public class Game extends JPanel
 
             //   myProjectile = new Projectile(pikachu.getX(), pikachu.getY(), ImageIO.read(new File("projectile.jpg")));
             pikachu=new Player(100,0,1,ImageIO.read(new File("r1.png")),40,300);
-            enemy=new StandardEnemy(100,0,1,ImageIO.read(new File("r3.png")),50,50,Math.random() * (0.06 - 0.03)+0.03);
-            enemy1=new StandardEnemy(100,0,1,ImageIO.read(new File("r3.png")),5,5,Math.random() * (0.06 - 0.03)+0.03);
-            enemy2=new StandardEnemy(100,0,1,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+0.03);
+            enemy=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),50,50,Math.random() * (0.06 - 0.03)+.13);
+            enemy1=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),5,5,Math.random() * (0.06 - 0.03)+.13);
+            enemy2=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.13);
             //enemy3=new StandardEnemy(100,0,1,ImageIO.read(new File("r3.png")),5,5,Math.random() * (0.06 - 0.03)+0.03);
             //enemy4=new StandardEnemy(100,0,1,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+0.03);
             //enemy5=new StandardEnemy(100,0,1,ImageIO.read(new File("r3.png")),5,5,Math.random() * (0.06 - 0.03)+0.03);
@@ -115,7 +115,7 @@ public class Game extends JPanel
         page.fillRect(0,0, 1200,130);
         page.setColor(Color.black);
         page.fillRect(0,130,1200,670);
-        page.drawImage(background, 100, 100, this);
+        page.drawImage(background, 100, 125, this);
         page.drawImage(pikachu.getPic(), pikachu.getX(), pikachu.getY(), this);
         page.drawImage(enemy.getPic(), enemy.getX(pikachu.getX()), enemy.getY(pikachu.getY()), this);
         page.drawImage(enemy1.getPic(), enemy1.getX(pikachu.getX()), enemy1.getY(pikachu.getY()), this);
