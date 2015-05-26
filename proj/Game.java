@@ -12,7 +12,6 @@ import javax.swing.JFrame;
 import java.util.ArrayList;
 public class Game extends JPanel
 {
-    private final int CIRCLE_SIZE = 50;
     private int xinc;
     private Color c;
     private JButton choose;
@@ -52,7 +51,6 @@ public class Game extends JPanel
         health=10;
         gold=1000;
 
-        //c = Color.white;
         this.setLayout(new BorderLayout());
         JButton upgrade = new JButton("Upgrade");
         //upgrade.addActionListener(new MoveListener());

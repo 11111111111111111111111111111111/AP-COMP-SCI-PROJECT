@@ -257,7 +257,7 @@ public class Player extends Entity
     }
     
     public int getY(){
-        if(up && !(y < 100)){
+        if(up && !(y < 200)){
             y-=inc;
         }
         if(down && !(y > 725)){

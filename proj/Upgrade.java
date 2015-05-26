@@ -11,11 +11,10 @@ public class Upgrade extends JPanel
 {
     private final int CIRCLE_SIZE = 50;
     private int x,y;
-    private Color c;
+    private boolean upgrade;
     private JButton choose;
     private boolean up;
     private boolean down;
-    private boolean upgrade;
     private boolean right;
     //---------------------------------------------------------------
     // Set up circle and buttons to move it.
