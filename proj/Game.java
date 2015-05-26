@@ -36,6 +36,10 @@ public class Game extends JPanel
     private static final String UP = "UP";
     private static final String LEFT = "LEFT";
     private static final String RIGHT = "RIGHT";
+    private static final String DOWNn = "DOWNn";
+    private static final String UPn = "UPn";
+    private static final String LEFTn = "LEFTn";
+    private static final String RIGHTn = "RIGHTn";
     private static final String SPACE = "SPACE";
 
     public Game(int width, int height)
@@ -59,7 +63,7 @@ public class Game extends JPanel
         //test player
         try {
 
-           myProjectile = new Projectile(pikachu.getX(), pikachu.getY(), ImageIO.read(new File("projectile.jpg")));
+        //   myProjectile = new Projectile(pikachu.getX(), pikachu.getY(), ImageIO.read(new File("projectile.jpg")));
             pikachu=new Player(100,0,1,ImageIO.read(new File("r1.png")),40,300);
             enemy=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),50,50);
            enemy1=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),5,5);
@@ -67,15 +71,23 @@ public class Game extends JPanel
         } catch (IOException e) {
             e.printStackTrace();
         }
-        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("DOWN"), DOWN);
-        buttonPanel.getActionMap().put(DOWN, new MoveDown());
-        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("UP"), UP);
-        buttonPanel.getActionMap().put(UP, new MoveUp());
-        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("LEFT"), LEFT);
-        buttonPanel.getActionMap().put(LEFT, new MoveLeft());
-        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("RIGHT"), RIGHT);
-        buttonPanel.getActionMap().put(RIGHT, new MoveRight());
-        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("SPACE"), SPACE);
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("pressed DOWN"), DOWN);
+        buttonPanel.getActionMap().put(DOWN, new Move(DOWN));
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("pressed UP"), UP);
+        buttonPanel.getActionMap().put(UP, new Move(UP));
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("pressed LEFT"), LEFT);
+        buttonPanel.getActionMap().put(LEFT, new Move(LEFT));
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("pressed RIGHT"), RIGHT);
+        buttonPanel.getActionMap().put(RIGHT, new Move(RIGHT));
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released DOWN"), DOWNn);
+        buttonPanel.getActionMap().put(DOWNn, new Move(DOWNn));
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released UP"), UPn);
+        buttonPanel.getActionMap().put(UPn, new Move(UPn));
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released LEFT"), LEFTn);
+        buttonPanel.getActionMap().put(LEFTn, new Move(LEFTn));
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released RIGHT"), RIGHTn);
+        buttonPanel.getActionMap().put(RIGHTn, new Move(RIGHTn));
+        //buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("SPACE"), SPACE);
         //buttonPanel.getActionMap().put(SPACE, new Moverun());
         try{
         background=ImageIO.read(new File("stadium.png"));
@@ -114,37 +126,41 @@ public class Game extends JPanel
             projectiles.add(myProjectile);
         }
     }
-    private class MoveDown extends AbstractAction
+    private class Move extends AbstractAction
     {
+        private String com;
+        public Move(String command){
+            com=command;
+            
+        }
+
+        
+            
+        
+    
+    
 
         public void actionPerformed(ActionEvent e)
         {
+            if(com.equals(DOWN))
             pikachu.down();
-        }
-    }
-    private class MoveLeft extends AbstractAction
-    {
-
-        public void actionPerformed(ActionEvent e)
-        {
+            if(com.equals(LEFT))
             pikachu.left();
-        }
-    }
-    private class MoveRight extends AbstractAction
-    {
-
-        public void actionPerformed(ActionEvent e)
-        {
+            if(com.equals(RIGHT))
             pikachu.right();
-        }
-    }
-    private class MoveUp extends AbstractAction
-    {
-
-        public void actionPerformed(ActionEvent e)
-        {
+            if(com.equals(UP))
             pikachu.up();
+            if(com.equals(DOWNn))
+            pikachu.downn();
+            if(com.equals(LEFTn))
+            pikachu.leftn();
+            if(com.equals(RIGHTn))
+            pikachu.rightn();
+            if(com.equals(UPn))
+            pikachu.upn();
+            
         }
+   
     }
 }
 

@@ -21,11 +21,16 @@ public class Player extends Entity
     private int damage;
     private int speed;
     private BufferedImage play;
-    private int x;
-    private int y;
+    private double x;
+    private double y;
+    private double inc;
     //position of picture
     private double xpic;
     private double ypic;
+    private boolean left;
+    private boolean right;
+    private boolean up;
+    private boolean down;
     private int r;
     private int l;
     private int u;
@@ -46,6 +51,7 @@ public class Player extends Entity
         d=0;
         u=0;
         l=0;
+        inc=0.05;
     }
     
     public int getDamage()
@@ -109,11 +115,18 @@ public class Player extends Entity
             r=0;
         }
         if( x > 1150){
-            x += 0;
+            //x += 0;
+            right=false;
         }
         else{
-            x+=10;
+            //x+=10;
+            left=false;
+            right=true;
         }
+    }
+    
+    public void rightn() {
+        right=false;
     }
     
     
@@ -137,11 +150,18 @@ public class Player extends Entity
             l=0;
         }
         if( x <= 0){
-            x +=0;
+            //x +=0;
+            left=false;
         }
         else{
-            x-=10;
+            //x-=10;
+            right=false;
+            left=true;
+
         }
+    }
+    public void leftn() {
+        left=false;
     }
     
     
@@ -170,11 +190,17 @@ public class Player extends Entity
             e.printStackTrace();
         }
         if(y < 100){
-            y += 0;
+            //y += 0;
+            up=false;
         }
         else{
-            y-=10;
+            //y-=10;
+            down=false;
+            up=true;
         }
+    }
+    public void upn() {
+        up=false;
     }
     
      public void run() {
@@ -207,19 +233,38 @@ public class Player extends Entity
             e.printStackTrace();
         }
         if(y > 725){
-            y += 0;
+           // y += 0;
+           down=false;
         }
         else{
-            y+=10;
+          //  y+=10;
+          up=false;
+          down=true;
         }
+    }
+    public void downn() {
+        down=false;
     }
     
     public int getX(){
-        return x;
+        if(right){
+            x+=inc;
+        }
+        if(left){
+            x-=inc;
+        }
+        return (int)x;
     }
     
     public int getY(){
-       return y;
+        if(up){
+            y-=inc;
+        }
+        if(down){
+            y+=inc;
+        }
+        
+       return (int)y;
     }
     
     public int getXpic()
