@@ -115,7 +115,7 @@ public class Game extends JPanel
         page.fillRect(0,0, 1200,130);
         page.setColor(Color.black);
         page.fillRect(0,130,1200,670);
-        page.drawImage(background, 50, 0, this);
+        page.drawImage(background, 100, 100, this);
         page.drawImage(pikachu.getPic(), pikachu.getX(), pikachu.getY(), this);
         page.drawImage(enemy.getPic(), enemy.getX(pikachu.getX()), enemy.getY(pikachu.getY()), this);
         page.drawImage(enemy1.getPic(), enemy1.getX(pikachu.getX()), enemy1.getY(pikachu.getY()), this);
