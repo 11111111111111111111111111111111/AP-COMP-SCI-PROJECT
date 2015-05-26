@@ -68,13 +68,13 @@ public class Game extends JPanel
 
             //   myProjectile = new Projectile(pikachu.getX(), pikachu.getY(), ImageIO.read(new File("projectile.jpg")));
             pikachu=new Player(100,0,1,ImageIO.read(new File("r1.png")),40,300);
-            enemy=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),50,50,Math.random() * (0.06 - 0.03)+0.03);
-            enemy1=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),5,5,Math.random() * (0.06 - 0.03)+0.03);
-            enemy2=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),300,300,Math.random() * (0.06 - 0.03)+0.03);
-            enemy3=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),5,5,Math.random() * (0.06 - 0.03)+0.03);
-            enemy4=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),300,300,Math.random() * (0.06 - 0.03)+0.03);
-            enemy5=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),5,5,Math.random() * (0.06 - 0.03)+0.03);
-            enemy6=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),300,300,Math.random() * (0.06 - 0.03)+0.03);
+            enemy=new StandardEnemy(100,0,1,ImageIO.read(new File("r3.png")),50,50,Math.random() * (0.06 - 0.03)+0.03);
+            enemy1=new StandardEnemy(100,0,1,ImageIO.read(new File("r3.png")),5,5,Math.random() * (0.06 - 0.03)+0.03);
+            enemy2=new StandardEnemy(100,0,1,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+0.03);
+            //enemy3=new StandardEnemy(100,0,1,ImageIO.read(new File("r3.png")),5,5,Math.random() * (0.06 - 0.03)+0.03);
+            //enemy4=new StandardEnemy(100,0,1,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+0.03);
+            //enemy5=new StandardEnemy(100,0,1,ImageIO.read(new File("r3.png")),5,5,Math.random() * (0.06 - 0.03)+0.03);
+            //enemy6=new StandardEnemy(100,0,1,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+0.03);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -120,10 +120,10 @@ public class Game extends JPanel
         page.drawImage(enemy.getPic(), enemy.getX(pikachu.getX()), enemy.getY(pikachu.getY()), this);
         page.drawImage(enemy1.getPic(), enemy1.getX(pikachu.getX()), enemy1.getY(pikachu.getY()), this);
         page.drawImage(enemy2.getPic(), enemy2.getX(pikachu.getX()), enemy2.getY(pikachu.getY()), this);
-        page.drawImage(enemy3.getPic(), enemy3.getX(pikachu.getX()), enemy3.getY(pikachu.getY()), this);
-        page.drawImage(enemy4.getPic(), enemy4.getX(pikachu.getX()), enemy4.getY(pikachu.getY()), this);
-        page.drawImage(enemy5.getPic(), enemy5.getX(pikachu.getX()), enemy5.getY(pikachu.getY()), this);
-        page.drawImage(enemy6.getPic(), enemy6.getX(pikachu.getX()), enemy6.getY(pikachu.getY()), this);
+        //page.drawImage(enemy3.getPic(), enemy3.getX(pikachu.getX()), enemy3.getY(pikachu.getY()), this);
+        //page.drawImage(enemy4.getPic(), enemy4.getX(pikachu.getX()), enemy4.getY(pikachu.getY()), this);
+        //page.drawImage(enemy5.getPic(), enemy5.getX(pikachu.getX()), enemy5.getY(pikachu.getY()), this);
+        //page.drawImage(enemy6.getPic(), enemy6.getX(pikachu.getX()), enemy6.getY(pikachu.getY()), this);
         //page.drawImage(myProjectile.getPic(), myProjectile.getX(), myProjectile.getY(),this);
         repaint();
     }
