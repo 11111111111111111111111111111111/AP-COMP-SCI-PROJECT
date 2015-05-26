@@ -189,7 +189,7 @@ public class Player extends Entity
         }catch (IOException e) {
             e.printStackTrace();
         }
-        if(y < 100){
+        if(y < 150){
             //y += 0;
             up=false;
         }
