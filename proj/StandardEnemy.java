@@ -61,12 +61,15 @@ public class StandardEnemy extends Entity
     }
 
     public int decreaseHealth(){
+        if(health <= 0){
+            enemy  = null;
+        }
         return health - 10;
     }
 
     public int getX(int playerX)
     {
-        if(x<playerX-30){
+        if(x<playerX-10){
             x+=inc;
             if (r==0){
                 try{
@@ -88,7 +91,7 @@ public class StandardEnemy extends Entity
             }
 
         }
-        else if(x>playerX+30){
+        else if(x>playerX+10){
             x-=inc;
             if (l==0){
                 try{
@@ -114,7 +117,7 @@ public class StandardEnemy extends Entity
 
     public int getY(int playerY)
     {
-        if(y<playerY-35){
+        if(y<playerY-10){
             y+=inc;
             if (d==0){
                 try{
@@ -135,7 +138,7 @@ public class StandardEnemy extends Entity
                 d=0;
             }
         }
-        else if(y>playerY+35){
+        else if(y>playerY+10){
             y-=inc;
             if (u==0){
                 try{
