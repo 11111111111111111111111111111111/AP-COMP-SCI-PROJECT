@@ -61,6 +61,9 @@ public class StandardEnemy extends Entity
     }
 
     public int decreaseHealth(){
+        if(health <= 0){
+            enemy  = null;
+        }
         return health - 10;
     }
 
