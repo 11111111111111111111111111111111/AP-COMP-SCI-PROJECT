@@ -247,43 +247,26 @@ public class Player extends Entity
     }
     
     public int getX(){
-        if(right){
+        if(right & !(x > 1150)){
             x+=inc;
         }
-        if(left){
+        if(left & !(x <= 0)){
             x-=inc;
         }
         return (int)x;
     }
     
     public int getY(){
-        if(up){
+        if(up && !(y < 100)){
             y-=inc;
         }
-        if(down){
+        if(down && !(y > 725)){
             y+=inc;
         }
         
        return (int)y;
     }
     
-    public int getXpic()
-    {
-       if(xpic<x-3)
-            xpic+=.5;
-        else if(xpic>x+3)
-           xpic-=.5;
-        return (int)xpic;
-    }
-    
-    public int getYpic()
-    {
-        if(ypic<y-3)
-            ypic+=.5;
-        else if(ypic>y+3)
-           ypic-=.5;
-        return (int)ypic;
-    }
     
     public void setX(int xp){
         x= xp;

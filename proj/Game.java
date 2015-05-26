@@ -25,6 +25,10 @@ public class Game extends JPanel
     private StandardEnemy enemy;
     private StandardEnemy enemy1;
     private StandardEnemy enemy2;
+    private StandardEnemy enemy3;
+    private StandardEnemy enemy4;
+    private StandardEnemy enemy5;
+    private StandardEnemy enemy6;
     private Timer timer;
     private int health;
     private int gold;
@@ -44,8 +48,7 @@ public class Game extends JPanel
 
     public Game(int width, int height)
     {
- 
-       
+
         health=10;
         gold=1000;
 
@@ -63,11 +66,15 @@ public class Game extends JPanel
         //test player
         try {
 
-        //   myProjectile = new Projectile(pikachu.getX(), pikachu.getY(), ImageIO.read(new File("projectile.jpg")));
+            //   myProjectile = new Projectile(pikachu.getX(), pikachu.getY(), ImageIO.read(new File("projectile.jpg")));
             pikachu=new Player(100,0,1,ImageIO.read(new File("r1.png")),40,300);
-            enemy=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),50,50);
-           enemy1=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),5,5);
-           enemy2=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),300,300);
+            enemy=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),50,50,Math.random() * (0.06 - 0.03)+0.03);
+            enemy1=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),5,5,Math.random() * (0.06 - 0.03)+0.03);
+            enemy2=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),300,300,Math.random() * (0.06 - 0.03)+0.03);
+            enemy3=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),5,5,Math.random() * (0.06 - 0.03)+0.03);
+            enemy4=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),300,300,Math.random() * (0.06 - 0.03)+0.03);
+            enemy5=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),5,5,Math.random() * (0.06 - 0.03)+0.03);
+            enemy6=new StandardEnemy(100,0,1,ImageIO.read(new File("r1.png")),300,300,Math.random() * (0.06 - 0.03)+0.03);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -90,7 +97,7 @@ public class Game extends JPanel
         //buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("SPACE"), SPACE);
         //buttonPanel.getActionMap().put(SPACE, new Moverun());
         try{
-        background=ImageIO.read(new File("stadium.png"));
+            background=ImageIO.read(new File("stadium.png"));
         }catch (IOException e) {
             e.printStackTrace();
         }
@@ -109,14 +116,18 @@ public class Game extends JPanel
         page.setColor(Color.black);
         page.fillRect(0,130,1200,670);
         page.drawImage(background, 50, 0, this);
-        page.drawImage(pikachu.getPic(), pikachu.getXpic(), pikachu.getYpic(), this);
+        page.drawImage(pikachu.getPic(), pikachu.getX(), pikachu.getY(), this);
         page.drawImage(enemy.getPic(), enemy.getX(pikachu.getX()), enemy.getY(pikachu.getY()), this);
         page.drawImage(enemy1.getPic(), enemy1.getX(pikachu.getX()), enemy1.getY(pikachu.getY()), this);
         page.drawImage(enemy2.getPic(), enemy2.getX(pikachu.getX()), enemy2.getY(pikachu.getY()), this);
+        page.drawImage(enemy3.getPic(), enemy3.getX(pikachu.getX()), enemy3.getY(pikachu.getY()), this);
+        page.drawImage(enemy4.getPic(), enemy4.getX(pikachu.getX()), enemy4.getY(pikachu.getY()), this);
+        page.drawImage(enemy5.getPic(), enemy5.getX(pikachu.getX()), enemy5.getY(pikachu.getY()), this);
+        page.drawImage(enemy6.getPic(), enemy6.getX(pikachu.getX()), enemy6.getY(pikachu.getY()), this);
         //page.drawImage(myProjectile.getPic(), myProjectile.getX(), myProjectile.getY(),this);
         repaint();
     }
-   
+
     private class Shoot extends AbstractAction
     {
         public void actionPerformed(ActionEvent e)
@@ -131,36 +142,33 @@ public class Game extends JPanel
         private String com;
         public Move(String command){
             com=command;
-            
+
         }
 
-        
             
-        
-    
     
 
         public void actionPerformed(ActionEvent e)
         {
             if(com.equals(DOWN))
-            pikachu.down();
+                pikachu.down();
             if(com.equals(LEFT))
-            pikachu.left();
+                pikachu.left();
             if(com.equals(RIGHT))
-            pikachu.right();
+                pikachu.right();
             if(com.equals(UP))
-            pikachu.up();
+                pikachu.up();
             if(com.equals(DOWNn))
-            pikachu.downn();
+                pikachu.downn();
             if(com.equals(LEFTn))
-            pikachu.leftn();
+                pikachu.leftn();
             if(com.equals(RIGHTn))
-            pikachu.rightn();
+                pikachu.rightn();
             if(com.equals(UPn))
-            pikachu.upn();
-            
+                pikachu.upn();
+
         }
-   
+
     }
 }
 
