@@ -16,6 +16,12 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+/**
+ * Enemy class which creates Enemy objects
+ * 
+ * @author Aditya, Prahlad, Andrew, Go
+ * @version 1.0
+ */
 public class StandardEnemy extends Entity
 {
     private int health;

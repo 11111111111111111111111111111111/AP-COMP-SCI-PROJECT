@@ -10,10 +10,11 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 /**
- * Abstract class Enemy - write a description of the class here
+ * Abstract class Entity- Parent class for all moving entities such 
+ *                          as player or enemies
  * 
- * @author (your name here)
- * @version (version number or date here)
+ * @author Aditya, Prahlad, Andrew, Go
+ * @version 1.0
  */
 public abstract class Entity
 {

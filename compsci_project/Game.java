@@ -25,7 +25,7 @@ public class Game extends JPanel
     private static final String UP = "UP";
     private static final String LEFT = "LEFT";
     private static final String RIGHT = "RIGHT";
-    public Game(int width, int height)
+    public Game()
     {
 
         
@@ -38,12 +38,12 @@ public class Game extends JPanel
         this.add(buttonPanel, BorderLayout.NORTH);
         
 
-        pikachu=new Player(30,width/2,height/2);
+        pikachu=new Player(100,600,400);
         persians= new ArrayList<Enemy>();
         
         
-      
-        persians.add(new Enemy(1,(int)(Math.random()*width), 500-(int) (Math.random()*370), pikachu));
+       
+        persians.add(new Enemy(1,(int)(Math.random()*1200), 500-(int) (Math.random()*370), pikachu));
           
         
         buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("DOWN"), DOWN);
@@ -59,7 +59,7 @@ public class Game extends JPanel
             {
                 public void actionPerformed(ActionEvent evt) 
                 {
-                    persians.add(new Enemy(1,(int)(Math.random()*width), 500-(int) (Math.random()*370), pikachu));
+                    persians.add(new Enemy(1,(int)(Math.random()*1200), 500-(int) (Math.random()*370), pikachu));
                     repaint();
                 }
             };

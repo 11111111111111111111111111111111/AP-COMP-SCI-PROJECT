@@ -10,6 +10,12 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import java.util.ArrayList;
+/**
+ * Class where all elements in the game are brought together
+ * 
+ * @author Aditya, Prahlad, Andrew, Go
+ * @version 1.0
+ */
 public class Game extends JPanel
 {
     private int xinc;

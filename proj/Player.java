@@ -10,10 +10,11 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 /**
- * Write a description of class Player here.
+ * Class to create the Player object which will 
+ * be the object the actual player controls
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Aditya, Prahlad, Andrew, Go
+ * @version 1.0
  */
 public class Player extends Entity
 {

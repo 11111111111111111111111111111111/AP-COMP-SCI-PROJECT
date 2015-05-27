@@ -8,6 +8,12 @@
 import java.awt.*;
 import javax.swing.*;
 
+/**
+ * Class where the game is drawn (this is the GUI as the name hints)
+ * 
+ * @author Aditya, Prahlad, Andrew, Go
+ * @version 1.0
+ */
 public class GUI 
 {
  

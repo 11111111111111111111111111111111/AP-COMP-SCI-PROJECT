@@ -12,7 +12,7 @@ public class GUI
         frame.setPreferredSize(new Dimension(1200,800));
 
 
-        frame.getContentPane().add(new Game(1200,800));
+        frame.getContentPane().add(new Game());
 
 
         frame.pack();
