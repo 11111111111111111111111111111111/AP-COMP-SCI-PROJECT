@@ -79,10 +79,6 @@ public class Game extends JPanel
             enemy=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),50,50,Math.random() * (0.06 - 0.03)+.13);
             enemy1=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),5,5,Math.random() * (0.06 - 0.03)+.13);
             enemy2=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.13);
-            //enemy3=new StandardEnemy(100,0,1,ImageIO.read(new File("r3.png")),5,5,Math.random() * (0.06 - 0.03)+0.03);
-            //enemy4=new StandardEnemy(100,0,1,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+0.03);
-            //enemy5=new StandardEnemy(100,0,1,ImageIO.read(new File("r3.png")),5,5,Math.random() * (0.06 - 0.03)+0.03);
-            //enemy6=new StandardEnemy(100,0,1,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+0.03);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -104,21 +100,21 @@ public class Game extends JPanel
         buttonPanel.getActionMap().put(RIGHTn, new Move(RIGHTn));
         
         buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("pressed S"), S);
-        buttonPanel.getActionMap().put(S, new Move(S));
+        buttonPanel.getActionMap().put(S, new Shoot(S));
         buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("pressed W"), W);
-        buttonPanel.getActionMap().put(W, new Move(W));
+        buttonPanel.getActionMap().put(W, new Shoot(W));
         buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("pressed A"), A);
-        buttonPanel.getActionMap().put(A, new Move(A));
+        buttonPanel.getActionMap().put(A, new Shoot(A));
         buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("pressed D"), D);
-        buttonPanel.getActionMap().put(D, new Move(D));
-        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released S"), Sn);
-        buttonPanel.getActionMap().put(Sn, new Move(Sn));
-        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released W"), Wn);
-        buttonPanel.getActionMap().put(Wn, new Move(Wn));
-        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released A"), An);
-        buttonPanel.getActionMap().put(An, new Move(An));
-        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released D"), Dn);
-        buttonPanel.getActionMap().put(Dn, new Move(Dn));
+        buttonPanel.getActionMap().put(D, new Shoot(D));
+        //buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released S"), Sn);
+        //buttonPanel.getActionMap().put(Sn, new Move(Sn));
+       // buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released W"), Wn);
+        //buttonPanel.getActionMap().put(Wn, new Move(Wn));
+        //buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released A"), An);
+        //buttonPanel.getActionMap().put(An, new Move(An));
+        //buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released D"), Dn);
+        //buttonPanel.getActionMap().put(Dn, new Move(Dn));
         //buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("SPACE"), SPACE);
         //buttonPanel.getActionMap().put(SPACE, new Moverun());
         try{
@@ -126,7 +122,7 @@ public class Game extends JPanel
         }catch (IOException e) {
             e.printStackTrace();
         }
-        buttonPanel.getActionMap().put(SPACE, new Shoot());
+       // buttonPanel.getActionMap().put(SPACE, new Shoot());
     }
 
     //---------------------------------------------------------------
@@ -145,18 +141,31 @@ public class Game extends JPanel
         page.drawImage(enemy.getPic(), enemy.getX(pikachu.getX()), enemy.getY(pikachu.getY()), this);
         page.drawImage(enemy1.getPic(), enemy1.getX(pikachu.getX()), enemy1.getY(pikachu.getY()), this);
         page.drawImage(enemy2.getPic(), enemy2.getX(pikachu.getX()), enemy2.getY(pikachu.getY()), this);
-        //page.drawImage(enemy3.getPic(), enemy3.getX(pikachu.getX()), enemy3.getY(pikachu.getY()), this);
-        //page.drawImage(enemy4.getPic(), enemy4.getX(pikachu.getX()), enemy4.getY(pikachu.getY()), this);
-        //page.drawImage(enemy5.getPic(), enemy5.getX(pikachu.getX()), enemy5.getY(pikachu.getY()), this);
-        //page.drawImage(enemy6.getPic(), enemy6.getX(pikachu.getX()), enemy6.getY(pikachu.getY()), this);
         //page.drawImage(myProjectile.getPic(), myProjectile.getX(), myProjectile.getY(),this);
         repaint();
     }
 
     private class Shoot extends AbstractAction
     {
+        private String com;
+        public Shoot(String command){
+            com=command;
+
+        }
+        
         public void actionPerformed(ActionEvent e)
         {
+           if(com.equals(W))
+               myProjectile.setDir("UP");
+           else if(com.equals(A))
+               myProjectile.setDir("LEFT");
+           else if(com.equals(D))
+               myProjectile.setDir("RIGHT");
+           else if(com.equals(S))
+                myProjectile.setDir("DOWN");
+            
+            
+            
             myProjectile.setX(pikachu.getX());
             myProjectile.setY(pikachu.getY());
             projectiles.add(myProjectile);
@@ -166,6 +175,7 @@ public class Game extends JPanel
     {
         private String com;
         public Move(String command){
+
             com=command;
 
         }
@@ -192,22 +202,22 @@ public class Game extends JPanel
             else if(com.equals(UPn))
                 pikachu.upn();
                 
-            else if(com.equals(W))
-                pikachu.W();
-            else if(com.equals(A))
-                pikachu.A();
-            else if(com.equals(D))
-                pikachu.D();
-            else if(com.equals(S))
-                pikachu.S();
-            else if(com.equals(Wn))
-                pikachu.Wn();
-            else if(com.equals(An))
-                pikachu.An();
-            else if(com.equals(Sn))
-                pikachu.Sn();
-            else if(com.equals(Dn))
-                pikachu.Dn();
+          //  else if(com.equals(W))
+           //     pikachu.W();
+         //   else if(com.equals(A))
+             //   pikachu.A();
+          //  else if(com.equals(D))
+           //     pikachu.D();
+           // else if(com.equals(S))
+            //    pikachu.S();
+           // else if(com.equals(Wn))
+            //    pikachu.Wn();
+           // else if(com.equals(An))
+           //     pikachu.An();
+            //else if(com.equals(Sn))
+            //    pikachu.Sn();
+           // else if(com.equals(Dn))
+             //   pikachu.Dn();
 
         }
 

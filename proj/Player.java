@@ -278,30 +278,29 @@ public class Player extends Entity
     
     
     
-    public void W() {
-        down=false;
-    }
-    public void A() {
-        down=false;
-    }
-    public void S() {
-        down=false;
-    }
-    public void D() {
-        down=false;
-    }
+   // public void W() {
+   //     proj=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.13);
+   // }
+    //public void A() {
+     //   proj2=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.13);
+   // }
+    //public void S() {
+      //  proj3=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.13);
+   // }
+    //public void D() {
+    //    proj4=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.13);
+    //}
     
-    public void Wn() {
-        down=false;
-    }
-    public void An() {
-        down=false;
-    }
-    public void Sn() {
-        down=false;
-    }
-    public void Dn() {
-        down=false;
-    }
+   // public void Wn() {
+    //    down=false;
+    //}
+    //public void An() {
+    //}
+   // public void Sn() {
+   //     down=false;
+   // }
+   // public void Dn() {
+   //     down=false;
+    //}
     
 }

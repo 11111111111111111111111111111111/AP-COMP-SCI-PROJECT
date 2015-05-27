@@ -19,10 +19,11 @@ public class Projectile
 {
    private double x;
    private double y;
-   private int double inc;
+   private double inc;
+   private String str;
    private BufferedImage projectile;
    
-   public Projectile(int xCord, int yCord, BufferedImage pic, boolean right, boolean up )
+   public Projectile(int xCord, int yCord, BufferedImage pic )
    {
        x=xCord;
        y=yCord;
@@ -38,13 +39,18 @@ public class Projectile
        y=yCord;
    }
    
+   public void setDir(String str1)
+   {
+       str=str1;
+   }
+   
    public int getX()
    {
-        return x;
+        return (int)x;
     }
    public int getY()
    {
-        return y;
+        return (int)y;
     }
    public BufferedImage getPic()
    {
