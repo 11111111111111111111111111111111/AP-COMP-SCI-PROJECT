@@ -17,11 +17,12 @@ import javax.swing.JFrame;
  */
 public class Projectile
 {
-   private int x;
-   private int y;
+   private double x;
+   private double y;
+   private int double inc;
    private BufferedImage projectile;
    
-   public Projectile(int xCord, int yCord, BufferedImage pic)
+   public Projectile(int xCord, int yCord, BufferedImage pic, boolean right, boolean up )
    {
        x=xCord;
        y=yCord;

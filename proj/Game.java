@@ -44,6 +44,16 @@ public class Game extends JPanel
     private static final String LEFTn = "LEFTn";
     private static final String RIGHTn = "RIGHTn";
     private static final String SPACE = "SPACE";
+    
+    private static final String W = "W";
+    private static final String A = "A";
+    private static final String S = "S";
+    private static final String D = "D";
+    private static final String Wn = "Wn";
+    private static final String An = "An";
+    private static final String Sn = "Sn";
+    private static final String Dn = "Dn";
+    
 
     public Game(int width, int height)
     {
@@ -92,6 +102,23 @@ public class Game extends JPanel
         buttonPanel.getActionMap().put(LEFTn, new Move(LEFTn));
         buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released RIGHT"), RIGHTn);
         buttonPanel.getActionMap().put(RIGHTn, new Move(RIGHTn));
+        
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("pressed S"), S);
+        buttonPanel.getActionMap().put(S, new Move(S));
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("pressed W"), W);
+        buttonPanel.getActionMap().put(W, new Move(W));
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("pressed A"), A);
+        buttonPanel.getActionMap().put(A, new Move(A));
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("pressed D"), D);
+        buttonPanel.getActionMap().put(D, new Move(D));
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released S"), Sn);
+        buttonPanel.getActionMap().put(Sn, new Move(Sn));
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released W"), Wn);
+        buttonPanel.getActionMap().put(Wn, new Move(Wn));
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released A"), An);
+        buttonPanel.getActionMap().put(An, new Move(An));
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released D"), Dn);
+        buttonPanel.getActionMap().put(Dn, new Move(Dn));
         //buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("SPACE"), SPACE);
         //buttonPanel.getActionMap().put(SPACE, new Moverun());
         try{
@@ -150,20 +177,37 @@ public class Game extends JPanel
         {
             if(com.equals(DOWN))
                 pikachu.down();
-            if(com.equals(LEFT))
+            else if(com.equals(LEFT))
                 pikachu.left();
-            if(com.equals(RIGHT))
+            else if(com.equals(RIGHT))
                 pikachu.right();
-            if(com.equals(UP))
+            else if(com.equals(UP))
                 pikachu.up();
-            if(com.equals(DOWNn))
+            else if(com.equals(DOWNn))
                 pikachu.downn();
-            if(com.equals(LEFTn))
+            else if(com.equals(LEFTn))
                 pikachu.leftn();
-            if(com.equals(RIGHTn))
+            else if(com.equals(RIGHTn))
                 pikachu.rightn();
-            if(com.equals(UPn))
+            else if(com.equals(UPn))
                 pikachu.upn();
+                
+            else if(com.equals(W))
+                pikachu.W();
+            else if(com.equals(A))
+                pikachu.A();
+            else if(com.equals(D))
+                pikachu.D();
+            else if(com.equals(S))
+                pikachu.S();
+            else if(com.equals(Wn))
+                pikachu.Wn();
+            else if(com.equals(An))
+                pikachu.An();
+            else if(com.equals(Sn))
+                pikachu.Sn();
+            else if(com.equals(Dn))
+                pikachu.Dn();
 
         }
 

@@ -275,4 +275,33 @@ public class Player extends Entity
     public void setY(int yp){
        y = yp;
     }
+    
+    
+    
+    public void W() {
+        down=false;
+    }
+    public void A() {
+        down=false;
+    }
+    public void S() {
+        down=false;
+    }
+    public void D() {
+        down=false;
+    }
+    
+    public void Wn() {
+        down=false;
+    }
+    public void An() {
+        down=false;
+    }
+    public void Sn() {
+        down=false;
+    }
+    public void Dn() {
+        down=false;
+    }
+    
 }
