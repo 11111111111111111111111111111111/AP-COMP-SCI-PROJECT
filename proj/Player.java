@@ -35,7 +35,8 @@ public class Player extends Entity
     private int l;
     private int u;
     private int d;
-    private Projectile myProjectile;
+    private boolean pr;
+    private boolean pu;
     public Player(int hp, int dmg, double spd, BufferedImage player, int positionX, int positionY)
     {
         health = hp;
@@ -52,13 +53,6 @@ public class Player extends Entity
         d=0;
         u=0;
         l=0;
-        try 
-        {
-            myProjectile = new Projectile(this.getX(), this.getY(), ImageIO.read(new File("bull.png")));
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
     }
     
     public int getDamage()
@@ -136,13 +130,14 @@ public class Player extends Entity
         right=false;
     }
     
-    
     public void left() {
         if (l==0){
-            try{
+            try
+            {
                     play=ImageIO.read(new File("l1.png"));
                 }
-            catch (IOException e) {
+            catch (IOException e)
+            {
                     e.printStackTrace();
                 }
                 l++;
@@ -170,7 +165,6 @@ public class Player extends Entity
     public void leftn() {
         left=false;
     }
-    
     
     public void up() {
         if (u==0){
@@ -201,6 +195,7 @@ public class Player extends Entity
             up=true;
         }
     }
+    
     public void upn() {
         up=false;
     }
@@ -208,7 +203,6 @@ public class Player extends Entity
      public void run() {
         y-=10;
     }
-    
     
     public void down() {
         if (d==0){
@@ -239,6 +233,7 @@ public class Player extends Entity
           down=true;
         }
     }
+    
     public void downn() {
         down=false;
     }
@@ -246,18 +241,22 @@ public class Player extends Entity
     public int getX(){
         if(right & !(x > 1150)){
             x+=speed;
+            pr=true;
         }
         if(left & !(x <= 0)){
             x-=speed;
+            pr=false;
         }
         return (int)x;
     }
     
     public int getY(){
         if(up && !(y < 200)){
+            pu=true;
             y-=speed;
         }
         if(down && !(y > 725)){
+            pu=false;
             y+=speed;
         }
         
@@ -273,6 +272,13 @@ public class Player extends Entity
        y = yp;
     }
     
+    public boolean shootr(){
+        return pr;
+    }
+    
+    public boolean shootu(){
+        return pu;
+    }
     
    // public void W() {
    //     proj=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.13);

@@ -22,12 +22,13 @@ public class Projectile
    private double inc;
    private String str;
    private BufferedImage projectile;
-   
-   public Projectile(int xCord, int yCord, BufferedImage pic )
+   private Player pika;
+   public Projectile(int xCord, int yCord, BufferedImage pic, Player play )
    {
        x=xCord;
        y=yCord;
        projectile=pic;
+       pika=play;
     }
    
    public void setX(int xCord)
@@ -46,10 +47,26 @@ public class Projectile
    
    public int getX()
    {
-        return (int)x;
+       if (x<0 || x>1200)
+       return (int)x;
+       if (pika.shootr()){
+           x+=1;
+        }
+        else{
+           x-=1;
+        }
+       return (int)x;
     }
    public int getY()
    {
+       if (y<100 || y>700)
+       return (int)y; 
+       if (pika.shootu()){
+            y-=1;
+        }
+        else{
+        y+=1;
+        }
         return (int)y;
     }
    public BufferedImage getPic()

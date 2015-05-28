@@ -10,10 +10,9 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import java.util.ArrayList;
-// import sun.audio.AudioData;
-// import sun.audio.AudioPlayer;
-// import sun.audio.AudioStream;
-// import sun.audio.ContinuousAudioDataStream;
+import sun.audio.*;
+import  sun.audio.ContinuousAudioDataStream;
+import  java.io.*;
 /**
  * Class where all elements in the game are brought together
  * 
@@ -79,7 +78,11 @@ public class Game extends JPanel
             enemy=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),50,50,Math.random() * (0.06 - 0.03)+.08);
             enemy1=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),5,5,Math.random() * (0.06 - 0.03)+.08);
             enemy2=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.08);
-            //myProjectile = new Projectile(pikachu.getX(), pikachu.getY(), ImageIO.read(new File("bull.png")));
+            myProjectile = new Projectile(pikachu.getX(), pikachu.getY(), ImageIO.read(new File("bull.png")), pikachu);
+
+            InputStream in = new FileInputStream("music.wav");
+            AudioStream as= new AudioStream(in);
+            AudioPlayer.player.start(as);
         } catch (IOException e) {
             //e.printStackTrace();
         }
@@ -120,31 +123,9 @@ public class Game extends JPanel
         //buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("SPACE"), SPACE);
         //buttonPanel.getActionMap().put(SPACE, new Moverun());
 
-        
         // buttonPanel.getActionMap().put(SPACE, new Shoot());
-
-        /*AudioPlayer myBackgroundPlayer = AudioPlayer.player;
-        ContinuousAudioDataStream myLoop = null;
-        //use a try block in case the file doesn't exist.
-        try {
-            AudioStream myBackgroundMusic = new AudioStream(new AudioStream(new File("music.wav")));
-            AudioData myData = myBackgroundMusic.getData();
-            myLoop = new ContinuousAudioDataStream(myData);
-        }
-        catch(Exception error) 
-        {
-            JOptionPane.showMessageDialog(null, "Invalid file!");
-        }
-
-        // play background music.
-        myBackgroundPlayer.start(myLoop);*/
-        
-        
     }
 
-    //---------------------------------------------------------------
-    // Repaint the game
-    //---------------------------------------------------------------
     public void paintComponent(Graphics page)
     {
         // super.paintComponent(page);
@@ -156,18 +137,17 @@ public class Game extends JPanel
         page.drawImage(background, 100, 125, this);
         page.drawImage(pikachu.getPic(), pikachu.getX(), pikachu.getY(), this);
         if (enemy!=null)
-        page.drawImage(enemy.getPic(), enemy.getX(pikachu.getX()), enemy.getY(pikachu.getY()), this);
+            page.drawImage(enemy.getPic(), enemy.getX(pikachu.getX()), enemy.getY(pikachu.getY()), this);
         if (enemy1!=null)
-        page.drawImage(enemy1.getPic(), enemy1.getX(pikachu.getX()), enemy1.getY(pikachu.getY()), this);
+            page.drawImage(enemy1.getPic(), enemy1.getX(pikachu.getX()), enemy1.getY(pikachu.getY()), this);
         if (enemy2!=null)
-        page.drawImage(enemy2.getPic(), enemy2.getX(pikachu.getX()), enemy2.getY(pikachu.getY()), this);
+            page.drawImage(enemy2.getPic(), enemy2.getX(pikachu.getX()), enemy2.getY(pikachu.getY()), this);
         //timer=new Timer(1,new TimeListener());
-        //page.drawImage(myProjectile.getPic(), pikachu.getX(), pikachu.getY(),this);
+        page.drawImage(myProjectile.getPic(), myProjectile.getX(), myProjectile.getY(),this);
         repaint();
     }
     private class ClickListener implements ActionListener
     {
-
         public void actionPerformed(ActionEvent e)
         {
             //creates upgrade window where you can upgrade Pikachu
@@ -183,12 +163,12 @@ public class Game extends JPanel
     {
         public TimeListener()
         {
-            
+
         }
-        
+
         public void actionPerformed(ActionEvent e)
         {
-        
+
         }
     }
     private class Shoot extends AbstractAction
