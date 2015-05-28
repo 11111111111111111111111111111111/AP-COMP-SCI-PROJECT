@@ -20,12 +20,12 @@ public abstract class Entity
 {
     private int health;
     private int damage;
-    private int speed;
+    private double speed;
     private int x,y;
     private BufferedImage picture;
     public abstract int getDamage();
     public abstract int getHealth();
     public abstract int decreaseHealth();
-    public abstract int getSpeed(); 
+    public abstract double getSpeed(); 
     public abstract BufferedImage getPic();
 }

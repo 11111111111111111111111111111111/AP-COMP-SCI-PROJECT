@@ -1,12 +1,12 @@
 #BlueJ class context
 comment0.params=hp\ dmg\ spd\ image\ positionX\ positionY\ ince
-comment0.target=StandardEnemy(int,\ int,\ int,\ java.awt.image.BufferedImage,\ int,\ int,\ double)
+comment0.target=StandardEnemy(int,\ int,\ double,\ java.awt.image.BufferedImage,\ int,\ int,\ double)
 comment1.params=
 comment1.target=int\ getDamage()
 comment2.params=
 comment2.target=int\ getHealth()
 comment3.params=
-comment3.target=int\ getSpeed()
+comment3.target=double\ getSpeed()
 comment4.params=
 comment4.target=java.awt.image.BufferedImage\ getPic()
 comment5.params=

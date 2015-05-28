@@ -20,11 +20,10 @@ public class Player extends Entity
 {
     private int health;
     private int damage;
-    private int speed;
+    private double speed;
     private BufferedImage play;
     private double x;
     private double y;
-    private double inc;
     //position of picture
     private double xpic;
     private double ypic;
@@ -36,7 +35,8 @@ public class Player extends Entity
     private int l;
     private int u;
     private int d;
-    public Player(int hp, int dmg, int spd, BufferedImage player, int positionX, int positionY)
+    private Projectile myProjectile;
+    public Player(int hp, int dmg, double spd, BufferedImage player, int positionX, int positionY)
     {
         health = hp;
         damage = dmg;
@@ -52,7 +52,13 @@ public class Player extends Entity
         d=0;
         u=0;
         l=0;
-        inc=0.05;
+        try 
+        {
+            myProjectile = new Projectile(this.getX(), this.getY(), ImageIO.read(new File("bull.png")));
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     
     public int getDamage()
@@ -81,14 +87,14 @@ public class Player extends Entity
         return health - 10;
     }
     
-    public int getSpeed()
+    public double getSpeed()
     {
         return speed;
     }
     
-     public int upgSpeed()
+     public double upgSpeed()
     {
-        speed+=5;
+        speed+=0.03;
         return speed;
     }
     
@@ -185,11 +191,6 @@ public class Player extends Entity
                 }
             u=0;
         }
-        try{
-        play=ImageIO.read(new File("up.gif"));
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
         if(y < 150){
             //y += 0;
             up=false;
@@ -228,11 +229,6 @@ public class Player extends Entity
                 }
             d=0;
         }
-        try{
-        play=ImageIO.read(new File("down.gif"));
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
         if(y > 725){
            // y += 0;
            down=false;
@@ -249,20 +245,20 @@ public class Player extends Entity
     
     public int getX(){
         if(right & !(x > 1150)){
-            x+=inc;
+            x+=speed;
         }
         if(left & !(x <= 0)){
-            x-=inc;
+            x-=speed;
         }
         return (int)x;
     }
     
     public int getY(){
         if(up && !(y < 200)){
-            y-=inc;
+            y-=speed;
         }
         if(down && !(y > 725)){
-            y+=inc;
+            y+=speed;
         }
         
        return (int)y;
@@ -276,7 +272,6 @@ public class Player extends Entity
     public void setY(int yp){
        y = yp;
     }
-    
     
     
    // public void W() {
