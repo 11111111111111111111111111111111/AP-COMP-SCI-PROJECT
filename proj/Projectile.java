@@ -20,6 +20,8 @@ public class Projectile
    private double x;
    private double y;
    private double inc;
+   private boolean range;
+   private double change;
    private String str;
    private BufferedImage projectile;
    private Player pika;
@@ -29,11 +31,13 @@ public class Projectile
        y=yCord;
        projectile=pic;
        pika=play;
+       inc=0.5;
     }
    
    public void setX(int xCord)
    {
        x=xCord;
+       
     }
    public void setY(int yCord)
    {
@@ -43,6 +47,8 @@ public class Projectile
    public void setDir(String str1)
    {
        str=str1;
+       change=0;
+       range=true;
    }
    
    public int getX()
@@ -67,10 +73,34 @@ public class Projectile
         else{
         y+=1;
         }
-        return (int)y;
+//        if(!(str==null))
+//         if(str.equals("RIGHT"))
+//         x+=inc;
+//         else if(str.equals("LEFT"))
+//         x-=inc;
+        change+=inc;
+        return (int)x;
     }
+// public int getY()
+//    {
+//        if(!(str==null))
+//         if(str.equals("DOWN"))
+//         y+=inc;
+//         else if(str.equals("UP"))
+//         y-=inc;
+//         change+=inc;
+//         return (int)y;
+//     }
    public BufferedImage getPic()
-   {
+   { 
+       //if(change>=300)
+       //range=false;
+       
+       //if(range)
+       //return projectile;
+       
+       //return null;
+       
        return projectile;
     }
 }

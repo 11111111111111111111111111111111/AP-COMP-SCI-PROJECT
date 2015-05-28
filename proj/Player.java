@@ -42,8 +42,7 @@ public class Player extends Entity
         health = hp;
         damage = dmg;
         speed = spd;
-        
-        
+
         play=player;
         x=positionX;
         y=positionY;
@@ -54,202 +53,177 @@ public class Player extends Entity
         u=0;
         l=0;
     }
-    
+
     public int getDamage()
     {
         return damage;
     }
-    
+
     public int upgDamage()
     {
         damage+=5;
         return damage;
     }
-    
+
     public int getHealth()
     {
         return health;
     }
-    
+
     public int upgHealth()
     {
         health+=5;
         return health;
     }
-    
+
     public int decreaseHealth(){
         return health - 10;
     }
-    
+
     public double getSpeed()
     {
         return speed;
     }
-    
-     public double upgSpeed()
+
+    public double upgSpeed()
     {
         speed+=0.03;
         return speed;
     }
-    
+
     public BufferedImage getPic(){
         return play;
     }
-    
+
     public void right() {
         if (r==0){
             try{
-                    play=ImageIO.read(new File("r1.png"));
-                }
+                play=ImageIO.read(new File("r1.png"));
+            }
             catch (IOException e) {
-                    e.printStackTrace();
-                }
-                r++;
+                e.printStackTrace();
+            }
+            r++;
         }
         else {
             try{
-                    play=ImageIO.read(new File("r2.png"));
-                }
+                play=ImageIO.read(new File("r2.png"));
+            }
             catch (IOException e) {
-                    e.printStackTrace();
-                }
+                e.printStackTrace();
+            }
             r=0;
         }
-        if( x > 1150){
-            //x += 0;
-            right=false;
-        }
-        else{
-            //x+=10;
-            left=false;
-            right=true;
-        }
+
+        left=false;
+        right=true;
+
     }
-    
+
     public void rightn() {
         right=false;
     }
-    
     public void left() {
         if (l==0){
-            try
-            {
-                    play=ImageIO.read(new File("l1.png"));
-                }
-            catch (IOException e)
-            {
-                    e.printStackTrace();
-                }
-                l++;
+            try{
+                play=ImageIO.read(new File("l1.png"));
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+            l++;
         }
         else {
             try{
-                    play=ImageIO.read(new File("l2.png"));
-                }
+                play=ImageIO.read(new File("l2.png"));
+            }
             catch (IOException e) {
-                    e.printStackTrace();
-                }
+                e.printStackTrace();
+            }
             l=0;
         }
-        if( x <= 0){
-            //x +=0;
-            left=false;
-        }
-        else{
-            //x-=10;
-            right=false;
-            left=true;
 
-        }
+
+        right=false;
+        left=true;
+
     }
+
     public void leftn() {
         left=false;
     }
-    
     public void up() {
         if (u==0){
             try{
-                    play=ImageIO.read(new File("u1.png"));
-                }
+                play=ImageIO.read(new File("u1.png"));
+            }
             catch (IOException e) {
-                    e.printStackTrace();
-                }
-                u++;
+                e.printStackTrace();
+            }
+            u++;
         }
         else {
             try{
-                    play=ImageIO.read(new File("u2.png"));
-                }
+                play=ImageIO.read(new File("u2.png"));
+            }
             catch (IOException e) {
-                    e.printStackTrace();
-                }
+                e.printStackTrace();
+            }
             u=0;
         }
-        if(y < 150){
-            //y += 0;
-            up=false;
-        }
-        else{
-            //y-=10;
-            down=false;
-            up=true;
-        }
+
+        down=false;
+        up=true;
+
     }
-    
     public void upn() {
         up=false;
     }
-    
-     public void run() {
+
+    public void run() {
         y-=10;
     }
-    
     public void down() {
         if (d==0){
             try{
-                    play=ImageIO.read(new File("d1.png"));
-                }
+                play=ImageIO.read(new File("d1.png"));
+            }
             catch (IOException e) {
-                    e.printStackTrace();
-                }
-                d++;
+                e.printStackTrace();
+            }
+            d++;
         }
         else {
             try{
-                    play=ImageIO.read(new File("d2.png"));
-                }
+                play=ImageIO.read(new File("d2.png"));
+            }
             catch (IOException e) {
-                    e.printStackTrace();
-                }
+                e.printStackTrace();
+            }
             d=0;
         }
-        if(y > 725){
-           // y += 0;
-           down=false;
-        }
-        else{
-          //  y+=10;
-          up=false;
-          down=true;
-        }
+
+        //  y+=10;
+        up=false;
+        down=true;
+
     }
-    
     public void downn() {
         down=false;
     }
-    
+
     public int getX(){
-        if(right & !(x > 1150)){
+        if(right && !(x > 950)){
             x+=speed;
             pr=true;
         }
-        if(left & !(x <= 0)){
+        if(left && !(x <= 175)){
             x-=speed;
             pr=false;
         }
         return (int)x;
     }
-    
+
     public int getY(){
         if(up && !(y < 200)){
             pu=true;
@@ -259,17 +233,16 @@ public class Player extends Entity
             pu=false;
             y+=speed;
         }
-        
-       return (int)y;
+
+        return (int)y;
     }
-    
-    
+
     public void setX(int xp){
         x= xp;
     }
-    
+
     public void setY(int yp){
-       y = yp;
+        y = yp;
     }
     
     public boolean shootr(){
@@ -283,26 +256,27 @@ public class Player extends Entity
    // public void W() {
    //     proj=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.13);
    // }
+
     //public void A() {
-     //   proj2=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.13);
-   // }
+    //   proj2=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.13);
+    // }
     //public void S() {
-      //  proj3=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.13);
-   // }
+    //  proj3=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.13);
+    // }
     //public void D() {
     //    proj4=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.13);
     //}
-    
-   // public void Wn() {
+
+    // public void Wn() {
     //    down=false;
     //}
     //public void An() {
     //}
-   // public void Sn() {
-   //     down=false;
-   // }
-   // public void Dn() {
-   //     down=false;
+    // public void Sn() {
+    //     down=false;
+    // }
+    // public void Dn() {
+    //     down=false;
     //}
-    
+
 }
