@@ -83,6 +83,7 @@ public class Game extends JPanel
     {
         // super.paintComponent(page);
         //green rect is where info for health, gold, etc. will be placed as text
+        boolean run=true;
         page.setColor(Color.green);
         page.fillRect(0,0, 1200,130);
         page.setColor(Color.black);
@@ -94,7 +95,15 @@ public class Game extends JPanel
             enemy.setY();
             enemy.setX();
             page.drawImage(enemy.getPic(),enemy.getX(), enemy.getY(),this);
+            if(enemy.getX()==pikachu.getX() && enemy.getY()==pikachu.getY())
+            {
+                page.setColor(Color.RED);
+                page.drawString("GAME OVER",600,600);
+                run=false;
+            }
         }
+        
+        if(run)
         repaint();
     }
     
