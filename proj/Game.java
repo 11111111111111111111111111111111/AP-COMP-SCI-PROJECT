@@ -64,7 +64,7 @@ public class Game extends JPanel
 
         this.setLayout(new BorderLayout());
         JButton upgrade = new JButton("Upgrade");
-        upgrade.addActionListener(new ClickListener());
+        //upgrade.addActionListener(new ClickListener());
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(upgrade);
@@ -79,7 +79,7 @@ public class Game extends JPanel
             enemy=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),50,50,Math.random() * (0.06 - 0.03)+.08);
             enemy1=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),5,5,Math.random() * (0.06 - 0.03)+.08);
             enemy2=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.08);
-            //myProjectile = new Projectile(pikachu.getX(), pikachu.getY(), ImageIO.read(new File("bull.png")));
+            myProjectile = new Projectile(pikachu.getX(), pikachu.getY(), ImageIO.read(new File("bull.png")));
         } catch (IOException e) {
             //e.printStackTrace();
         }
@@ -101,17 +101,17 @@ public class Game extends JPanel
         buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released RIGHT"), RIGHTn);
         buttonPanel.getActionMap().put(RIGHTn, new Move(RIGHTn));
 
-        //buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("pressed S"), S);
-        //buttonPanel.getActionMap().put(S, new Shoot(S));
-        //buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("pressed W"), W);
-        //buttonPanel.getActionMap().put(W, new Shoot(W));
-        //buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("pressed A"), A);
-        //buttonPanel.getActionMap().put(A, new Shoot(A));
-        //buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("pressed D"), D);
-        //buttonPanel.getActionMap().put(D, new Shoot(D));
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("S"), S);
+        buttonPanel.getActionMap().put(S, new Shoot(S));
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("W"), W);
+        buttonPanel.getActionMap().put(W, new Shoot(W));
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("A"), A);
+        buttonPanel.getActionMap().put(A, new Shoot(A));
+        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("D"), D);
+        buttonPanel.getActionMap().put(D, new Shoot(D));
         //buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released S"), Sn);
         //buttonPanel.getActionMap().put(Sn, new Move(Sn));
-        // buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released W"), Wn);
+        //buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released W"), Wn);
         //buttonPanel.getActionMap().put(Wn, new Move(Wn));
         //buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released A"), An);
         //buttonPanel.getActionMap().put(An, new Move(An));
@@ -162,7 +162,7 @@ public class Game extends JPanel
         if (enemy2!=null)
         page.drawImage(enemy2.getPic(), enemy2.getX(pikachu.getX()), enemy2.getY(pikachu.getY()), this);
         //timer=new Timer(1,new TimeListener());
-        //page.drawImage(myProjectile.getPic(), pikachu.getX(), pikachu.getY(),this);
+        page.drawImage(myProjectile.getPic(), myProjectile.getX(), myProjectile.getY(),this);
         repaint();
     }
     private class ClickListener implements ActionListener
@@ -212,7 +212,7 @@ public class Game extends JPanel
 
             myProjectile.setX(pikachu.getX());
             myProjectile.setY(pikachu.getY());
-            projectiles.add(myProjectile);
+           // projectiles.add(myProjectile);
         }
     }
     private class Move extends AbstractAction
