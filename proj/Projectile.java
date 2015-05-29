@@ -17,90 +17,95 @@ import javax.swing.JFrame;
  */
 public class Projectile
 {
-   private double x;
-   private double y;
-   private double inc;
-   private boolean range;
-   private double change;
-   private String str;
-   private BufferedImage projectile;
-   private Player pika;
-   public Projectile(int xCord, int yCord, BufferedImage pic, Player play )
-   {
-       x=xCord;
-       y=yCord;
-       projectile=pic;
-       pika=play;
-       inc=0.5;
+    private double x;
+    private double y;
+    private double inc;
+    private boolean range;
+    private double change;
+    private String str;
+    private BufferedImage projectile;
+    private Player pika;
+    public Projectile(int xCord, int yCord, BufferedImage pic, Player play )
+    {
+        x=xCord;
+        y=yCord;
+        projectile=pic;
+        pika=play;
+        inc=0.5;
     }
-   
-   public void setX(int xCord)
-   {
-       x=xCord;
-       
+
+    public void setX(int xCord)
+    {
+        x=xCord;
+
     }
-   public void setY(int yCord)
-   {
-       y=yCord;
-   }
-   
-   public void setDir(String str1)
-   {
-       str=str1;
-       change=0;
-       range=true;
-   }
-   
-   public int getX()
-   {
-       if (x<0 || x>1200)
-       return (int)x;
-       if (pika.shootr()){
-           x+=1;
+
+    public void setY(int yCord)
+    {
+        y=yCord;
+    }
+
+    public void setDir(String str1)
+    {
+        str=str1;
+        change=0;
+        range=true;
+    }
+
+    public int getX()
+    {
+        if (x<0 || x>1200)
+            return (int)x;
+        if (pika.shootr()){
+            x+=1;
         }
         else{
-           x-=1;
+            x-=1;
         }
-       return (int)x;
+        return (int)x;
     }
-   public int getY()
-   {
-       if (y<100 || y>700)
-       return (int)y; 
-       if (pika.shootu()){
+
+    public int getY()
+    {
+         if (y<100 || y>700)
+             return (int)y; 
+         if (pika.shootu()){
             y-=1;
-        }
+         }
         else{
-        y+=1;
+            y+=1;
         }
-//        if(!(str==null))
-//         if(str.equals("RIGHT"))
-//         x+=inc;
-//         else if(str.equals("LEFT"))
-//         x-=inc;
+        //if(!(str==null))
+          //  if(str.equals("RIGHT"))
+          //      x+=inc;
+           // else if(str.equals("LEFT"))
+        //        x-=inc;
         change+=inc;
         return (int)x;
     }
-// public int getY()
-//    {
-//        if(!(str==null))
-//         if(str.equals("DOWN"))
-//         y+=inc;
-//         else if(str.equals("UP"))
-//         y-=inc;
-//         change+=inc;
-//         return (int)y;
-//     }
-   public BufferedImage getPic()
-   { 
-       //if(change>=300)
-       //range=false;
-       
-       //if(range)
-       //return projectile;
-       
-       //return null;
-       
-       return projectile;
+   
+    /* public int getY()
+        {
+            if(!(str==null))
+             if(str.equals("DOWN"))
+             y+=inc;
+             else if(str.equals("UP"))
+             y-=inc;
+             change+=inc;
+             return (int)y;
+         }
+         */
+         
+    public BufferedImage getPic()
+    { 
+       // if(change>=300)
+       // range=false;
+
+        //if(range)
+       // return projectile;
+
+       // return null;
+
+        return projectile;
     }
 }

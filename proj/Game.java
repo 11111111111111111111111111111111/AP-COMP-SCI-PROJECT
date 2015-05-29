@@ -33,7 +33,7 @@ public class Game extends JPanel
     private int health;
     private int gold;
     private BufferedImage background;
-    private ArrayList<Projectile> projectiles;
+   // private ArrayList<Projectile> projectiles;
     private Projectile myProjectile;
     private static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
     private static final String DOWN = "DOWN";
@@ -50,10 +50,10 @@ public class Game extends JPanel
     private static final String A = "A";
     private static final String S = "S";
     private static final String D = "D";
-    private static final String Wn = "Wn";
-    private static final String An = "An";
-    private static final String Sn = "Sn";
-    private static final String Dn = "Dn";
+    //private static final String Wn = "Wn";
+    //private static final String An = "An";
+    //private static final String Sn = "Sn";
+   // private static final String Dn = "Dn";
 
     public Game(int width, int height)
     {
@@ -80,9 +80,9 @@ public class Game extends JPanel
             enemy2=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.08);
             myProjectile = new Projectile(pikachu.getX(), pikachu.getY(), ImageIO.read(new File("bull.png")), pikachu);
 
-            InputStream in = new FileInputStream("music.wav");
-            AudioStream as= new AudioStream(in);
-            AudioPlayer.player.start(as);
+            //InputStream in = new FileInputStream("music.wav");
+            //AudioStream as= new AudioStream(in);
+            //AudioPlayer.player.start(as);
         } catch (IOException e) {
             //e.printStackTrace();
         }
@@ -146,6 +146,7 @@ public class Game extends JPanel
         page.drawImage(myProjectile.getPic(), myProjectile.getX(), myProjectile.getY(),this);
         repaint();
     }
+    
     private class ClickListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
@@ -156,6 +157,7 @@ public class Game extends JPanel
             upgrade.setPreferredSize(new Dimension(300,300));
             upgrade.pack();
             upgrade.setVisible(true);
+            upgrade.getContentPane().add(new Upgrade(pikachu));
             repaint();
         }
     }
@@ -169,7 +171,7 @@ public class Game extends JPanel
         public void actionPerformed(ActionEvent e)
         {
 
-        }
+        }  
     }
     private class Shoot extends AbstractAction
     {
