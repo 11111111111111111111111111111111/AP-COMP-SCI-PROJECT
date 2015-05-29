@@ -9,12 +9,13 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
-import java.util.ArrayList;
 import sun.audio.*;
 import  sun.audio.ContinuousAudioDataStream;
 import  java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 /**
- * Class where all elements in the game are brought together
+ * Class where all elements of the game are brought together
  * 
  * @author Aditya, Prahlad, Andrew, Go
  * @version 1.0
@@ -22,19 +23,11 @@ import  java.io.*;
 public class Game extends JPanel
 {
     private Player pikachu;
-    private StandardEnemy enemy;
-    private StandardEnemy enemy1;
-    private StandardEnemy enemy2;
-    private StandardEnemy enemy3;
-    private StandardEnemy enemy4;
-    private StandardEnemy enemy5;
-    private StandardEnemy enemy6;
-    private Timer timer;
-    private int health;
-    private int gold;
+    private List<Enemy> persians; 
+    private int score;
+    private int delay;
+    private JButton diff;
     private BufferedImage background;
-    private ArrayList<Projectile> projectiles;
-    private Projectile myProjectile;
     private static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
     private static final String DOWN = "DOWN";
     private static final String UP = "UP";
@@ -44,41 +37,29 @@ public class Game extends JPanel
     private static final String UPn = "UPn";
     private static final String LEFTn = "LEFTn";
     private static final String RIGHTn = "RIGHTn";
-    private static final String SPACE = "SPACE";
-
-    private static final String W = "W";
-    private static final String A = "A";
-    private static final String S = "S";
-    private static final String D = "D";
-    private static final String Wn = "Wn";
-    private static final String An = "An";
-    private static final String Sn = "Sn";
-    private static final String Dn = "Dn";
-
+    private boolean run;
     public Game(int width, int height)
     {
-
-        health=1;
-        gold=1000;
-
+        score=0;
+        
         this.setLayout(new BorderLayout());
-        JButton upgrade = new JButton("Upgrade");
-        upgrade.addActionListener(new ClickListener());
+        diff = new JButton("Reset");
+        diff.addActionListener(new ClickListener());
 
         JPanel buttonPanel = new JPanel();
-        buttonPanel.add(upgrade);
-        buttonPanel.add(new infoPanel(health,gold));
+        buttonPanel.add(diff);
+        buttonPanel.add(new infoPanel(score));
         this.add(buttonPanel, BorderLayout.NORTH);
-        JPanel colorPanel=new JPanel();
 
         //test player
+        pikachu=new Player(0.5,600,400);
+        persians= new ArrayList<Enemy>();
         try {
-            background=ImageIO.read(new File("stadium.png"));
-            pikachu=new Player(100,0,0.1,ImageIO.read(new File("r1.png")),600,300);
-            enemy=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),50,50,Math.random() * (0.06 - 0.03)+.08);
-            enemy1=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),5,5,Math.random() * (0.06 - 0.03)+.08);
-            enemy2=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.08);
-            myProjectile = new Projectile(pikachu.getX(), pikachu.getY(), ImageIO.read(new File("bull.png")), pikachu);
+            //background=ImageIO.read(new File("stadium.png"));
+            //pikachu=new Player(100,0,0.1,ImageIO.read(new File("r1.png")),600,300);
+            //enemy=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),50,50,Math.random() * (0.06 - 0.03)+.08);
+            //enemy1=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),5,5,Math.random() * (0.06 - 0.03)+.08);
+            //enemy2=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.08);
 
             InputStream in = new FileInputStream("music.wav");
             AudioStream as= new AudioStream(in);
@@ -103,105 +84,64 @@ public class Game extends JPanel
         buttonPanel.getActionMap().put(LEFTn, new Move(LEFTn));
         buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released RIGHT"), RIGHTn);
         buttonPanel.getActionMap().put(RIGHTn, new Move(RIGHTn));
-
-        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("S"), S);
-        buttonPanel.getActionMap().put(S, new Shoot(S));
-        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("W"), W);
-        buttonPanel.getActionMap().put(W, new Shoot(W));
-        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("A"), A);
-        buttonPanel.getActionMap().put(A, new Shoot(A));
-        buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("D"), D);
-        buttonPanel.getActionMap().put(D, new Shoot(D));
-        //buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released S"), Sn);
-        //buttonPanel.getActionMap().put(Sn, new Move(Sn));
-        //buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released W"), Wn);
-        //buttonPanel.getActionMap().put(Wn, new Move(Wn));
-        //buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released A"), An);
-        //buttonPanel.getActionMap().put(An, new Move(An));
-        //buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("released D"), Dn);
-        //buttonPanel.getActionMap().put(Dn, new Move(Dn));
-        //buttonPanel.getInputMap(IFW).put(KeyStroke.getKeyStroke("SPACE"), SPACE);
-        //buttonPanel.getActionMap().put(SPACE, new Moverun());
-
-        // buttonPanel.getActionMap().put(SPACE, new Shoot());
+        delay=5000;
+        
+        ActionListener taskPerformer = new ActionListener() 
+            {
+                public void actionPerformed(ActionEvent evt) 
+                {
+                    persians.add(new Enemy(0.3,(int)(Math.random()*1200), 500-(int) (Math.random()*370), pikachu));
+                    repaint();
+                }
+            };
+        new Timer(delay, taskPerformer).start();
+        
     }
 
     public void paintComponent(Graphics page)
     {
         // super.paintComponent(page);
         //green rect is where info for health, gold, etc. will be placed as text
+        run=true;
         page.setColor(Color.green);
         page.fillRect(0,0, 1200,130);
         page.setColor(Color.black);
         page.fillRect(0,130,1200,670);
-        page.drawImage(background, 100, 125, this);
+        //page.drawImage(background, 100, 125, this);
         page.drawImage(pikachu.getPic(), pikachu.getX(), pikachu.getY(), this);
-        if (enemy!=null)
-            page.drawImage(enemy.getPic(), enemy.getX(pikachu.getX()), enemy.getY(pikachu.getY()), this);
-        if (enemy1!=null)
-            page.drawImage(enemy1.getPic(), enemy1.getX(pikachu.getX()), enemy1.getY(pikachu.getY()), this);
-        if (enemy2!=null)
-            page.drawImage(enemy2.getPic(), enemy2.getX(pikachu.getX()), enemy2.getY(pikachu.getY()), this);
-        //timer=new Timer(1,new TimeListener());
-        page.drawImage(myProjectile.getPic(), myProjectile.getX(), myProjectile.getY(),this);
+        for(Enemy enemy: persians)
+        {
+            enemy.setY();
+            enemy.setX();
+            page.drawImage(enemy.getPic(),enemy.getX(), enemy.getY(),this);
+            if(enemy.getX()==pikachu.getX() && enemy.getY()==pikachu.getY())
+            {
+                page.setColor(Color.RED);
+                page.drawString("Score: "+score,500,500);
+                page.drawString("GAME OVER",600,600);
+                run=false;
+                
+            }
+        }
+        if(run)
         repaint();
     }
+    
     private class ClickListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
-            //creates upgrade window where you can upgrade Pikachu
-            JFrame upgrade = new JFrame ("Upgrade");
-            upgrade.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-            upgrade.setPreferredSize(new Dimension(300,300));
-            upgrade.pack();
-            upgrade.setVisible(true);
+            //When clicked, it refreshes game and has enemies start off a bit faster.
+            run=true;
             repaint();
         }
     }
-    private class TimeListener implements ActionListener
-    {
-        public TimeListener()
-        {
-
-        }
-
-        public void actionPerformed(ActionEvent e)
-        {
-
-        }
-    }
-    private class Shoot extends AbstractAction
-    {
-        private String com;
-        public Shoot(String command){
-            com=command;
-
-        }
-
-        public void actionPerformed(ActionEvent e)
-        {
-            if(com.equals(W))
-                myProjectile.setDir("UP");
-            else if(com.equals(A))
-                myProjectile.setDir("LEFT");
-            else if(com.equals(D))
-                myProjectile.setDir("RIGHT");
-            else if(com.equals(S))
-                myProjectile.setDir("DOWN");
-
-            myProjectile.setX(pikachu.getX());
-            myProjectile.setY(pikachu.getY());
-           // projectiles.add(myProjectile);
-        }
-    }
+    
     private class Move extends AbstractAction
     {
         private String com;
         public Move(String command){
-
             com=command;
-
         }
 
         public void actionPerformed(ActionEvent e)
@@ -222,24 +162,6 @@ public class Game extends JPanel
                 pikachu.rightn();
             else if(com.equals(UPn))
                 pikachu.upn();
-
-            /*else if(com.equals(W))
-            pikachu.W();
-            else if(com.equals(A))
-            pikachu.A();
-            else if(com.equals(D))
-            pikachu.D();
-            else if(com.equals(S))
-            pikachu.S();
-            else if(com.equals(Wn))
-            pikachu.Wn();
-            else if(com.equals(An))
-            pikachu.An();
-            else if(com.equals(Sn))
-            pikachu.Sn();
-            else if(com.equals(Dn))
-            pikachu.Dn();
-             */
         }
 
     }

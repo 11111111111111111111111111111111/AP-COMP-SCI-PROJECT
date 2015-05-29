@@ -16,10 +16,8 @@ import javax.swing.JFrame;
  * @author Aditya, Prahlad, Andrew, Go
  * @version 1.0
  */
-public class Player extends Entity
+public class Player
 {
-    private int health;
-    private int damage;
     private double speed;
     private BufferedImage play;
     private double x;
@@ -35,15 +33,15 @@ public class Player extends Entity
     private int l;
     private int u;
     private int d;
-    private boolean pr;
-    private boolean pu;
-    public Player(int hp, int dmg, double spd, BufferedImage player, int positionX, int positionY)
+    public Player(double spd, int positionX, int positionY)
     {
-        health = hp;
-        damage = dmg;
-        speed = spd;
-
-        play=player;
+        speed=spd;
+        try{
+                play=ImageIO.read(new File("r1.png"));
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
         x=positionX;
         y=positionY;
         xpic=positionX;
@@ -54,40 +52,8 @@ public class Player extends Entity
         l=0;
     }
 
-    public int getDamage()
-    {
-        return damage;
-    }
-
-    public int upgDamage()
-    {
-        damage+=5;
-        return damage;
-    }
-
-    public int getHealth()
-    {
-        return health;
-    }
-
-    public int upgHealth()
-    {
-        health+=5;
-        return health;
-    }
-
-    public int decreaseHealth(){
-        return health - 10;
-    }
-
     public double getSpeed()
     {
-        return speed;
-    }
-
-    public double upgSpeed()
-    {
-        speed+=0.03;
         return speed;
     }
 
@@ -215,22 +181,18 @@ public class Player extends Entity
     public int getX(){
         if(right && !(x > 950)){
             x+=speed;
-            pr=true;
         }
         if(left && !(x <= 175)){
             x-=speed;
-            pr=false;
         }
         return (int)x;
     }
 
     public int getY(){
         if(up && !(y < 200)){
-            pu=true;
             y-=speed;
         }
         if(down && !(y > 725)){
-            pu=false;
             y+=speed;
         }
 
@@ -243,14 +205,6 @@ public class Player extends Entity
 
     public void setY(int yp){
         y = yp;
-    }
-    
-    public boolean shootr(){
-        return pr;
-    }
-    
-    public boolean shootu(){
-        return pu;
     }
     
    // public void W() {

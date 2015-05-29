@@ -1,4 +1,4 @@
 #BlueJ class context
-comment0.params=hp\ gold
-comment0.target=infoPanel(int,\ int)
+comment0.params=score
+comment0.target=infoPanel(int)
 numComments=1

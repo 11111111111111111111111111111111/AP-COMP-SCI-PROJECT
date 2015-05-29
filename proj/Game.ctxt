@@ -1,6 +1,8 @@
 #BlueJ class context
 comment0.params=width\ height
 comment0.target=Game(int,\ int)
-comment1.params=page
-comment1.target=void\ paintComponent(java.awt.Graphics)
-numComments=2
+comment1.params=evt
+comment1.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment2.params=page
+comment2.target=void\ paintComponent(java.awt.Graphics)
+numComments=3
