@@ -80,9 +80,9 @@ public class Game extends JPanel
             enemy2=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.08);
             myProjectile = new Projectile(pikachu.getX(), pikachu.getY(), ImageIO.read(new File("bull.png")), pikachu);
 
-            //InputStream in = new FileInputStream("music.wav");
-            //AudioStream as= new AudioStream(in);
-            //AudioPlayer.player.start(as);
+            InputStream in = new FileInputStream("music.wav");
+            AudioStream as= new AudioStream(in);
+            AudioPlayer.player.start(as);
         } catch (IOException e) {
             //e.printStackTrace();
         }
