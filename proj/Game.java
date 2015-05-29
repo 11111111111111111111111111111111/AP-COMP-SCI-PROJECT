@@ -153,8 +153,9 @@ public class Game extends JPanel
         {
             //creates upgrade window where you can upgrade Pikachu
             JFrame upgrade = new JFrame ("Upgrade");
+            
             upgrade.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-            upgrade.setPreferredSize(new Dimension(300,300));
+            upgrade.setPreferredSize(new Dimension(500,500));
             upgrade.pack();
             upgrade.setVisible(true);
             upgrade.getContentPane().add(new Upgrade(pikachu));

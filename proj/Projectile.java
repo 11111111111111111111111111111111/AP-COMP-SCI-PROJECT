@@ -51,11 +51,12 @@ public class Projectile
         change=0;
         range=true;
     }
+    /*
 
     public int getX()
     {
         if (x<0 || x>1200)
-            return (int)x;
+           return (int)x;
         if (pika.shootr()){
             x+=1;
         }
@@ -64,10 +65,22 @@ public class Projectile
         }
         return (int)x;
     }
+    */
+   
+   public int getX()
+        {
+            if(!(str==null))
+             if(str.equals("RIGHT"))
+             x+=inc;
+             else if(str.equals("LEFT"))
+             x-=inc;
+             change+=inc;
+             return (int)x;
+         }
 
-    public int getY()
-    {
-         if (y<100 || y>700)
+   // public int getY()
+   // {
+        /* if (y<100 || y>700)
              return (int)y; 
          if (pika.shootu()){
             y-=1;
@@ -75,16 +88,18 @@ public class Projectile
         else{
             y+=1;
         }
+        */
+       
         //if(!(str==null))
           //  if(str.equals("RIGHT"))
-          //      x+=inc;
-           // else if(str.equals("LEFT"))
-        //        x-=inc;
-        change+=inc;
-        return (int)x;
-    }
+          //     x+=inc;
+          //  else if(str.equals("LEFT"))
+          //      x-=inc;
+        //change+=inc;
+        //return (int)x;
+   // }
    
-    /* public int getY()
+     public int getY()
         {
             if(!(str==null))
              if(str.equals("DOWN"))
@@ -94,18 +109,18 @@ public class Projectile
              change+=inc;
              return (int)y;
          }
-         */
+         
          
     public BufferedImage getPic()
     { 
-       // if(change>=300)
-       // range=false;
+        if(change>=300)
+        range=false;
 
-        //if(range)
-       // return projectile;
-
-       // return null;
-
+        if(range)
         return projectile;
+
+        return null;
+
+        //return projectile;
     }
 }

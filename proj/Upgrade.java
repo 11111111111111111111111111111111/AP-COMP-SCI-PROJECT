@@ -12,15 +12,30 @@ import javax.swing.JFrame;
 public class Upgrade extends JPanel
 {
     private Player pikachu;
-    private JButton test;
+    private JButton speed;
+    private JButton power;
+    private JButton health;
+    private JButton drops;
     private JPanel buttonPanel;
     public Upgrade(Player pika)
     {
-       test = new JButton("Test");
+       speed= new JButton("Speed");
+       power = new JButton("Power");
+       health = new JButton("Health");
+       drops = new JButton("Drops");
+      // test = new JButton("Test");
        buttonPanel = new JPanel();
-       buttonPanel.add(test);
-        this.add(test);
-        this.add(buttonPanel, BorderLayout.NORTH);
+       buttonPanel.add(speed);
+       buttonPanel.add(power);
+       buttonPanel.add(health);
+       buttonPanel.add(drops);
+       //this.add(speed);
+      // this.add(power);
+      // this.add(health);
+      // this.add(drops);
+        
+        
+        this.add(buttonPanel, BorderLayout.SOUTH);
         pikachu=pika;
         
 
@@ -39,17 +54,33 @@ public class Upgrade extends JPanel
         this.setOpaque(true);
         page.setColor(Color.red);
         this.setBackground(Color.red);
-        test.addActionListener(new action());
+       //test.addActionListener(new action());
 
         repaint();
 
     }
     private class action implements ActionListener
     {
+        private String com;
+        public void action(String command )
+        {
+            //creates upgrade window where you can upgrade Pikachu
+            com=command;
+            
+        }
+        
+        
+        
         public void actionPerformed(ActionEvent e)
         {
             //creates upgrade window where you can upgrade Pikachu
-            pikachu.setX(0);
+            if(com.equals("H"))
+            pikachu.upgHealth();
+            else if(com.equals("H"))
+             pikachu.upgHealth();
+            
+            
+            
             
         }
     }
