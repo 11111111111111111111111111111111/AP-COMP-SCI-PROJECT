@@ -136,7 +136,6 @@ public class Game extends JPanel
             repaint();
         }
     }
-    
     private class Move extends AbstractAction
     {
         private String com;
@@ -163,7 +162,5 @@ public class Game extends JPanel
             else if(com.equals(UPn))
                 pikachu.upn();
         }
-
     }
 }
-

@@ -12,7 +12,7 @@ public class infoPanel extends JPanel
         panel.add(scoreAmount);
        
         this.add(panel);
-        
-      
+        repaint();
+
     }
 }

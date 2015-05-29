@@ -206,31 +206,5 @@ public class Player
     public void setY(int yp){
         y = yp;
     }
-    
-   // public void W() {
-   //     proj=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.13);
-   // }
-
-    //public void A() {
-    //   proj2=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.13);
-    // }
-    //public void S() {
-    //  proj3=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.13);
-    // }
-    //public void D() {
-    //    proj4=new StandardEnemy(100,0,50,ImageIO.read(new File("r3.png")),300,300,Math.random() * (0.06 - 0.03)+.13);
-    //}
-
-    // public void Wn() {
-    //    down=false;
-    //}
-    //public void An() {
-    //}
-    // public void Sn() {
-    //     down=false;
-    // }
-    // public void Dn() {
-    //     down=false;
-    //}
 
 }
