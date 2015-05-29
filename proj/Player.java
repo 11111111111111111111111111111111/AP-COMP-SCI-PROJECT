@@ -179,20 +179,20 @@ public class Player
     }
 
     public int getX(){
-        if(right && !(x > 950)){
+        if(right && !(x > 1150)){
             x+=speed;
         }
-        if(left && !(x <= 175)){
+        if(left && !(x <= 0)){
             x-=speed;
         }
         return (int)x;
     }
 
     public int getY(){
-        if(up && !(y < 200)){
+        if(up && !(y < 100)){
             y-=speed;
         }
-        if(down && !(y > 725)){
+        if(down && !(y > 750)){
             y+=speed;
         }
 

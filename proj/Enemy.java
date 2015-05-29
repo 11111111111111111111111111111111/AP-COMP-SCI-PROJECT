@@ -8,28 +8,73 @@ public class Enemy
     // instance variables - replace the example below with your own
     private BufferedImage persian;
     private Player pikachu;
-    private Direction direction;
     private double speed;
     private int xcoor;
     private int ycoor;
+    private int r;
+    private int l;
+    private int u;
+    private int d;
     public Enemy(double s, int x, int y, Player p)
     {
         speed=s;
         xcoor=x;
         ycoor=y;
         pikachu=p;
-        direction=Direction.UP;
+        r=0;
+        l=0;
+        u=0;
+        d=0;
     }
     public void setY()
     {
         if(pikachu.getY()<getY())
         {
-            setDirection(Direction.UP);
+            if(u==0)
+            {
+            try {
+                persian=ImageIO.read(new File("u3.png"));
+            }
+            catch(IOException e)
+            {
+                e.printStackTrace();}
+                u++;
+            }
+            if(u==1)
+            {
+            try {
+                persian=ImageIO.read(new File("u4.png"));
+            }
+            catch(IOException e)
+            {
+                e.printStackTrace();}
+                u--;
+            }
             ycoor-=getSpeed();
         }
         if(pikachu.getY()>getY())
         {
-            setDirection(Direction.DOWN);
+            
+            if(d==0)
+            {
+            try {
+                persian=ImageIO.read(new File("d3.png"));
+            }
+            catch(IOException e)
+            {
+                e.printStackTrace();}
+                d++;
+            }
+            if(d==1)
+            {
+            try {
+                persian=ImageIO.read(new File("d4.png"));
+            }
+            catch(IOException e)
+            {
+                e.printStackTrace();}
+                d--;
+            }
             ycoor+=getSpeed();
         }
     }
@@ -37,54 +82,57 @@ public class Enemy
     {
         if(pikachu.getX()<getX())
         {
-            setDirection(Direction.LEFT);
-            xcoor-=getSpeed();
-        }
-        if(pikachu.getX()>getX())
-        {
-            setDirection(Direction.RIGHT);
-            xcoor+=getSpeed();
-        }
-    }
-
-    public BufferedImage getPic()
-    {
-        if(getDirection()==Direction.DOWN)
-        {
-            try {
-                persian=ImageIO.read(new File("d3.png"));
-            }
-            catch(IOException e)
+            if(r==0)
             {
-                e.printStackTrace();}
-        }
-        if(getDirection()==Direction.UP)
-        {
-            try {
-                persian=ImageIO.read(new File("u3.png"));
-            }
-            catch(IOException e)
-            {
-                e.printStackTrace();}
-        }
-         if(getDirection()==Direction.LEFT)
-        {
-            try {
-                persian=ImageIO.read(new File("l3.png"));
-            }
-            catch(IOException e)
-            {
-                e.printStackTrace();}
-        }
-         if(getDirection()==Direction.RIGHT)
-        {
             try {
                 persian=ImageIO.read(new File("r3.png"));
             }
             catch(IOException e)
             {
                 e.printStackTrace();}
+                r++;
+            }
+            if(l==1)
+            {
+            try {
+                persian=ImageIO.read(new File("r4.png"));
+            }
+            catch(IOException e)
+            {
+                e.printStackTrace();}
+                r--;
+            }
+            xcoor-=getSpeed();
         }
+        
+        if(pikachu.getX()>getX())
+        {
+            if(l==0)
+            {
+            try {
+                persian=ImageIO.read(new File("l3.png"));
+            }
+            catch(IOException e)
+            {
+                e.printStackTrace();}
+                l++;
+            }
+            if(l==1)
+            {
+            try {
+                persian=ImageIO.read(new File("l4.png"));
+            }
+            catch(IOException e)
+            {
+                e.printStackTrace();}
+                l--;
+            }
+            xcoor+=getSpeed();
+        }
+    }
+
+    public BufferedImage getPic()
+    {
         return persian;
     }
     
@@ -96,16 +144,6 @@ public class Enemy
     public int getX()
     {
         return xcoor;
-    }
-    
-    public Direction getDirection()
-    {
-        return direction;
-    }
-    
-    public void setDirection(Direction d)
-    {
-        direction=d;
     }
     
     public double getSpeed()
